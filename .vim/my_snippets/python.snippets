@@ -2,6 +2,7 @@
 # My Custom Python Snippets #
 #############################
 global !p
+
 #########################################
 # Common Functions from python snippets #
 #########################################
@@ -178,11 +179,10 @@ endsnippet
 snippet docs
 """${1:Brief description of file}
 
-.. module:: ${2:`Filename('$1', 'foo.bar')`}
-	:platform: Unix, Linux
-		:synopsis: ${3:What is in this file}
+.. module:: ${2:`!v Filename('$1', 'foo.bar')`}
+	:platform: Linux, MacOS${3:, Windows}
 
-.. moduleauthor:: ${4:`g:snips_author`}
+.. moduleauthor:: ${4:`!v g:snips_author`}
 
 .. note::
 	${5:None}
