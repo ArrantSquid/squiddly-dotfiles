@@ -36,6 +36,8 @@ Plugin 'derekwyatt/vim-scala'
 Plugin 'xolox/vim-session'
 Plugin 'tpope/vim-surround'
 Plugin 'honza/vim-snippets'
+Plugin 'fatih/vim-go'
+Plugin 'fatih/molokai'
 
 call vundle#end()           " required
 
