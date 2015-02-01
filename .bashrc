@@ -8,7 +8,8 @@ export CLICOLOR=1
 export PS1="\e[0;34m\]\W \e[0;31m\]>\e[0;33m\]>\e[0;32m\]> \e[0;35m\]\u \e[0;37m\]"
 export HISTCONTROL=ignoredups
 export HISTCONTROL=erasedups
-export HISTIGNORE='pwd:ll:ls'
+export HISTIGNORE='pwd:ll:ls:cd ..:cd ../..:listenvs:src:ak:curip:startdocker'
+export HISTTIMEFORMAT='%F %T '
 
 # ignores duplicate and empty history
 export HISTCONTROL=ignoreboth

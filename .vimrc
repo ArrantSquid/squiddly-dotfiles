@@ -52,6 +52,24 @@ filetype plugin indent on
 colorscheme molokai
 let g:rehash256 = 1
 
+if has('gui_running')
+    if has("gui_macvim")
+        set lines=75
+        set columns=205
+    elseif has("win32")
+        if has("autocmd")
+            au GUIEnter * simalt ~x
+        endif
+    endif
+    set guifont=Source\ Code\ Pro\ Light:h15
+    set guioptions+=T                   " Show our toolbar
+endif
+
+set synmaxcol=200
+set mousehide
+set cursorline
+set cursorcolumn
+
 " ==================================================
 " Basic Settings
 " ==================================================
@@ -96,6 +114,7 @@ set sw=4 				    " Set the shiftwidth to 4 for everything
 let g:session_autosave = 'no'       " Don't <expletive> ask me to save a <expletive> session every <expletive> time
 let g:session_autoload = 'no'       " Don't <expletive> ask me to open a <expletive> file every <expletive> time
 set nofoldenable            " Set the folds to disabled by default
+set keymodel=
 
 " Persistent undo
 set undodir=~/.vim_undo//

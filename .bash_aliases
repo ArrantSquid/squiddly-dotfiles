@@ -1,16 +1,8 @@
 # vim: set ft=sh:
-
 ##################
 # SYSTEM ALIASES #
 ##################
 alias ll='ls -l'
-######################
-# END SYSTEM ALIASES #
-######################
-
-####################
-# PERSONAL ALIASES #
-####################
 
 ##################
 # HELPER ALIASES #
@@ -23,13 +15,6 @@ alias src='source $HOME/.bashrc; source $HOME/.bash_profile'
 alias ak='avada_kedavra.sh'
 # Get your current ip
 alias curip='ifconfig -a | grep -w inet | cut -d" " -f2 '
-######################
-# END HELPER ALIASES #
-######################
-
-########################
-# END PERSONAL ALIASES #
-########################
 
 ##################
 # RANDOM ALIASES #
@@ -38,9 +23,6 @@ alias curip='ifconfig -a | grep -w inet | cut -d" " -f2 '
 alias startdocker='boot2docker init; boot2docker start; $(boot2docker shellinit)'
 # Fake SMTP server
 alias tsmtp='python -m smtpd -n -c DebuggingServer localhost:1025'
-######################
-# END RANDOM ALIASES #
-######################
 
 ####################
 # FUNCTION ALIASES #
@@ -83,7 +65,3 @@ supafind()
 {
     grep -rin --include \*.$1 $2 $3
 }
-
-########################
-# END FUNCTION ALIASES #
-########################
