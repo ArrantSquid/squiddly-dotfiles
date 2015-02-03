@@ -5,7 +5,8 @@ fi
 
 # Shell Aliases
 export CLICOLOR=1
-export PS1="\e[0;34m\]\W \e[0;31m\]>\e[0;33m\]>\e[0;32m\]> \e[0;35m\]\u \e[0;37m\]"
+# Custom bash prompt via kirsle.net/wizards/ps1.html
+export PS1="\[$(tput setaf 4)\]\W\[$(tput setaf 1)\] >\[$(tput setaf 3)\]>\[$(tput setaf 2)\]>\[$(tput setaf 5)\] \u \[$(tput setaf 7)\]\[$(tput sgr0)\]"
 export HISTCONTROL=ignoredups
 export HISTCONTROL=erasedups
 export HISTIGNORE='pwd:ll:ls:cd ..:cd ../..:listenvs:src:ak:curip:startdocker'
