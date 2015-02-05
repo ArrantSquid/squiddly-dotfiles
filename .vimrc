@@ -38,6 +38,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'honza/vim-snippets'
 Plugin 'fatih/vim-go'
 Plugin 'fatih/molokai'
+Plugin 'scrooloose/nerdcommenter'
 
 call vundle#end()           " required
 
@@ -141,6 +142,12 @@ let g:UltiSnipsJumpBackwardTrigger = '<S-tab>'      " shift tab goes backwards
 " Set NERDTree Options
 " ==================================================
 let NERDTreeIgnore = ['\.pyc$']
+
+" ==================================================
+" Set NERDCommenter Options
+" ==================================================
+let NERDSpaceDelims = 1
+let NERDCommentWholeLinesInVMode=1
 
 " ==================================================
 " Set TaskList Options
@@ -252,8 +259,8 @@ nnoremap T :TaskList<CR>
      autocmd FileType tex let b:comment_leader = '% '
      autocmd FileType htmldjango let b:comment_leader = '{%comment%} {%endcomment%} '
      autocmd FileType css let b:comment_leader = '/* */ '
-     noremap <silent> <leader>c :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
-     noremap <silent> <leader>u :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+     "noremap <silent> <leader>c :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+     "noremap <silent> <leader>u :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
      autocmd Filetype python let b:textwidth=79
 
