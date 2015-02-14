@@ -3,7 +3,10 @@
 " ==================================================
 " Starting Up Settings
 " ==================================================
-set nocompatible            " Do not try and be VI compatible
+if has('vim_starting')
+  set nocompatible " Do not try and be VI compatible
+  set runtimepath+=~/.vim/bundle/dart-vim-plugin " add dart to the runtimepath
+endif
 
 " ==================================================
 " Vundle Setup
@@ -24,27 +27,24 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'ervandew/supertab'
 Plugin 'majutsushi/tagbar'
 Plugin 'SirVer/ultisnips'
-Plugin 'jeroenbourgois/vim-actionscript'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
 Plugin 'xolox/vim-misc'
-Plugin 'tarmack/vim-python-ftplugin'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-repeat'
-Plugin 'derekwyatt/vim-scala'
 Plugin 'xolox/vim-session'
 Plugin 'tpope/vim-surround'
 Plugin 'honza/vim-snippets'
 Plugin 'fatih/vim-go'
 Plugin 'fatih/molokai'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
+Plugin 'dart-lang/dart-vim-plugin'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()           " required
 
 " Must be called after all vundle stuff
 syntax on
-filetype on
 filetype plugin indent on
 
 " ==================================================

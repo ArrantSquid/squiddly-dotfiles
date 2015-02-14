@@ -36,6 +36,10 @@ deacenv() {
 
 # Create a new virtual env
 createenv() {
+    if [ "$1" == "" ]; then
+        echo "You must provide a name for the environment"
+        return 1
+    fi
     deacenv;
     virtualenv --no-site-packages $VIRTUAL_ENV_DIR/$1;
     workon $1;
