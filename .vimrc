@@ -40,6 +40,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'dart-lang/dart-vim-plugin'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'hynek/vim-python-pep8-indent'
 
 call vundle#end()           " required
 
@@ -83,7 +84,6 @@ set number				    " Show line numbers
 set title				    " Show title in console title bar
 set nostartofline			" Don't jump to first character when paging
 set backspace=2				" Start,indent,eol
-set matchpairs+=<:>			" Show matching <> (html mainly) as well
 set showmatch           	" Jump to matching brace immediately after insert
 set matchtime=3				" Time vim will sit on the matching brace
 set nosmartindent 			" Set smartindent on
@@ -94,7 +94,6 @@ set wildmenu				" Tab complete commands
 set wildmode=list:longest,full 		" List longest first. Don't know if I want this
 set wildignore+=*.pyc       		" Whoever wanted to modify a .pyc?
 set history=10000			" Give me lots of Undos
-set tabpagemax=50			" I want to be able to open entire directories into tabs
 set virtualedit=all			" Let my cursor go everywhere
 set incsearch				" Search as I type
 set shellslash 				" Use the / instead of \
@@ -125,7 +124,7 @@ set undofile
 set directory=~/.vim_swap//
 
 " ==================================================
-" Set Snippet Options
+" Set Plugin Options
 " ==================================================
 " Set the snippet directories
 let g:UltiSnipsSnippetDirectories=["bundle/vim-snippets/UltiSnips", "my_snippets"]
@@ -134,26 +133,38 @@ let g:UltiSnipsSnippetDirectories=["bundle/vim-snippets/UltiSnips", "my_snippets
 let g:snips_author = 'ArrantSquid'
 " Set the docstrings to be normal, doxygen or sphinx based
 let g:ultisnips_python_style = 'sphinx'             " sphinx style docstrings
-" Move through snippets with the following
-let g:UltiSnipsJumpForwardTrigger = '<tab>'         " tab goes forward
-let g:UltiSnipsJumpBackwardTrigger = '<S-tab>'      " shift tab goes backwards
 
-" ==================================================
-" Set NERDTree Options
-" ==================================================
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+
+" Supertab completion
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+" Nerdtree ignore
 let NERDTreeIgnore = ['\.pyc$']
 
-" ==================================================
-" Set NERDCommenter Options
-" ==================================================
+" Add spaces before we comment
 let NERDSpaceDelims = 1
+" Comment the whole line
 let NERDCommentWholeLinesInVMode=1
 
-" ==================================================
-" Set TaskList Options
-" ==================================================
 " Set the tags we want to look for when populating our todo
 let g:tlTokenList = ['FIXME', 'TODO', 'XXX', 'fixme', 'todo', 'xxx']
+
+"Additional python syntax highlighting
+let python_highlight_all=1
+
+" Gundo Plugin
+nnoremap <F5> :GundoToggle<CR>
+
+" TaskList Plugin
+nnoremap T :TaskList<CR>
 
 " ==================================================
 " Key Mappings
@@ -161,15 +172,9 @@ let g:tlTokenList = ['FIXME', 'TODO', 'XXX', 'fixme', 'todo', 'xxx']
 " Set our leader character
 let mapleader=","
 
-" This allows for easy completion
-inoremap <leader>, <C-x><C-o>
-
 " Match the lines that are too long.
 nmap <leader>m :exec 'match WarningMsg /\%'.b:textwidth.'v.*/'<CR>
 nmap <leader>n :match<CR>
-
-" Turning off the stupid man pages thing
-map K <Nop>
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
@@ -179,10 +184,6 @@ nmap <silent> <leader>w :set invwrap<CR>:set wrap?<CR>
 
 " Clear highlights with spacebar
 nmap <silent> <Space> :nohlsearch <CR>
-
-" Allow me to scroll horizontally
-nmap <silent> <leader>o 30zl
-nmap <silent> <leader>i 30zh
 
 " Toggle Tagbar
 nmap <leader>o :TagbarToggle<CR>
@@ -198,35 +199,13 @@ nmap <leader>ss :SaveSession
 " Get the current filtype
 nmap <leader>ft :set filetype?<CR>
 
-" Django HTML Highlighting
-nmap <leader>dh :setfiletype htmldjango<CR>
-
-" Markdown Highlighting
-nmap <leader>md :setfiletype markdown<CR>
-
 " Replace windows line endings
 map <leader>fw :%s/<C-q><C-m>/\r/g<CR>
-
-" ==================================================
-" Plugin Settings
-" ==================================================
-"Additional python syntax highlighting
-let python_highlight_all=1
-
-" Gundo Plugin
-nnoremap <F5> :GundoToggle<CR>
-
-" TaskList Plugin
-nnoremap T :TaskList<CR>
 
 " ==================================================
 " Set Filetype/GUI Options
 " ==================================================
  if has("autocmd")
-
-    " Use .as for ActionScript files, not Atlas files.
-    autocmd BufNewFile,BufRead *.as set filetype=actionscript
-
     " Remove line/column selection on inactive panes
     autocmd WinEnter * setlocal cursorline
     autocmd WinLeave * setlocal nocursorline
@@ -235,49 +214,22 @@ nnoremap T :TaskList<CR>
 
     " Automatically delete trailing white spaces
     autocmd BufEnter,BufRead,BufWrite * silent! %s/[\r \t]\+$//
-    autocmd BufEnter *.php :%s/[ \t\r]\+$//e
     " Set current directory to that of the opened files
     autocmd BufEnter,BufWrite * lcd %:p:h
     " Set default textwidth
     autocmd BufEnter * let b:textwidth=80
-
     " If a MayaAscii file hightlight as if a mel file
     autocmd BufRead,BufNewFile *.ma setf mel
 
     " Ensure that all my auto formating is minimal
     autocmd Filetype * setlocal formatoptions=t
-
     " Filetype specific tabbing
     autocmd FileType * setlocal ts=4 sts=4 sw=4 expandtab
-
-    " Filetype specific comment leaders
-     autocmd FileType * let b:comment_leader = ''
-     autocmd FileType vim,vimrc let b:comment_leader = '" '
-     autocmd FileType haskell,vhdl,ada let b:comment_leader = '-- '
-     autocmd FileType actionscript,cs,javascript,c,cpp,java,mel,objc,objcpp,go let b:comment_leader = '// '
-     autocmd FileType sh,make,python,tcsh,snippets,apache,conf,ruby let b:comment_leader = '# '
-     autocmd FileType tex let b:comment_leader = '% '
-     autocmd FileType htmldjango let b:comment_leader = '{%comment%} {%endcomment%} '
-     autocmd FileType css let b:comment_leader = '/* */ '
-     "noremap <silent> <leader>c :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
-     "noremap <silent> <leader>u :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
-
-     autocmd Filetype python let b:textwidth=79
-
+    " Make sure we're not hitting long lines
+    autocmd Filetype python let b:textwidth=79
     " Set the default file to be python
-     autocmd BufEnter * if &filetype == "" | setlocal ft=python | endif
+    autocmd BufEnter * if &filetype == "" | setlocal ft=python | endif
 
-    " Set omnicomplete to not spam us
+    " Disable completion info
     set completeopt=menu,menuone
-
-    " Setup omnicomplete code completion
-     autocmd FileType python set omnifunc=pythoncomplete#Complete
-     autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-     autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-     autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-     autocmd FileType cs set omnifunc=cscomplete#CompleteCS
-
  endif
-" ==================================================
-" Functions
-" ==================================================
