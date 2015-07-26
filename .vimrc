@@ -20,6 +20,7 @@ Plugin 'gmarik/Vundle.vim'
 " ==================================================
 " Vundle Plugin Management
 " ==================================================
+Plugin 'fatih/molokai'
 Plugin 'vim-scripts/TaskList.vim'
 Plugin 'corntrace/bufexplorer'
 Plugin 'sjl/gundo.vim'
@@ -35,12 +36,12 @@ Plugin 'xolox/vim-session'
 Plugin 'tpope/vim-surround'
 Plugin 'honza/vim-snippets'
 Plugin 'fatih/vim-go'
-Plugin 'fatih/molokai'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
-Plugin 'dart-lang/dart-vim-plugin'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'Shougo/neocomplete.vim'
 Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'bling/vim-airline'
+Plugin 'PProvost/vim-ps1'
 
 call vundle#end()           " required
 
@@ -105,7 +106,7 @@ set laststatus=2			" Always show status line
 " %{expand('%:p')} gives the full path to the file
 " %l/%L current line and total lines
 " %v current column
-set statusline=%r\ F:%{expand('%:p')}\ L:%l/%L\ C:%v
+" set statusline=%r\ F:%{expand('%:p')}\ L:%l/%L\ C:%v
 set hidden 				    " This allows vim to work with buffers much more liberally. So no warnings when switching modified buffers
 set sessionoptions=buffers,resize,winpos,winsize " What information to save when creating a session.
 set sts=4                   " Set the softtabstop to 4 for everything
@@ -126,6 +127,8 @@ set directory=~/.vim_swap//
 " ==================================================
 " Set Plugin Options
 " ==================================================
+" Set NeoComplete to run
+let g:neocomplete#enable_at_startup = 1
 " Set the snippet directories
 let g:UltiSnipsSnippetDirectories=["bundle/vim-snippets/UltiSnips", "my_snippets"]
 
@@ -205,7 +208,7 @@ map <leader>fw :%s/<C-q><C-m>/\r/g<CR>
 " ==================================================
 " Set Filetype/GUI Options
 " ==================================================
- if has("autocmd")
+if has("autocmd")
     " Remove line/column selection on inactive panes
     autocmd WinEnter * setlocal cursorline
     autocmd WinLeave * setlocal nocursorline
@@ -232,4 +235,4 @@ map <leader>fw :%s/<C-q><C-m>/\r/g<CR>
 
     " Disable completion info
     set completeopt=menu,menuone
- endif
+endif
