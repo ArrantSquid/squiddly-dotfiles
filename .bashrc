@@ -16,7 +16,7 @@ export HISTTIMEFORMAT='%F %T '
 export HISTCONTROL=ignoreboth
 # merge all history from multiple tabs together
 shopt -s histappend
-# # After each command, save and reload history - this preserves the history
+# After each command, save and reload history - this preserves the history
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 export EDITOR='vim'

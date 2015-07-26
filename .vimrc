@@ -38,9 +38,9 @@ Plugin 'fatih/vim-go'
 Plugin 'fatih/molokai'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
-Plugin 'dart-lang/dart-vim-plugin'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'bling/vim-airline'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()           " required
 
@@ -105,7 +105,7 @@ set laststatus=2			" Always show status line
 " %{expand('%:p')} gives the full path to the file
 " %l/%L current line and total lines
 " %v current column
-set statusline=%r\ F:%{expand('%:p')}\ L:%l/%L\ C:%v
+" set statusline=%r\ F:%{expand('%:p')}\ L:%l/%L\ C:%v
 set hidden 				    " This allows vim to work with buffers much more liberally. So no warnings when switching modified buffers
 set sessionoptions=buffers,resize,winpos,winsize " What information to save when creating a session.
 set sts=4                   " Set the softtabstop to 4 for everything
