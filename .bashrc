@@ -8,27 +8,14 @@ export CLICOLOR=1
 # Colors
 if tput setaf 1 &> /dev/null; then
     tput sgr0
-    if [[ $(tput colors) -ge 256 ]] 2>/dev/null; then
-      BLACK=$(tput setaf 0)
-      RED=$(tput setaf 1)
-      GREEN=$(tput setaf 190)
-      YELLOW=$(tput setaf 3)
-      BLUE=$(tput setaf 4)
-      ORANGE=$(tput setaf 172)
-      MAGENTA=$(tput setaf 9)
-      PURPLE=$(tput setaf 141)
-      CYAN=$(tput setaf 6)
-      WHITE=$(tput setaf 256)
-    else
-      BLACK=$(tput setaf 0)
-      RED=$(tput setaf 1)
-      GREEN=$(tput setaf 2)
-      YELLOW=$(tput setaf 3)
-      BLUE=$(tput setaf 4)
-      MAGENTA=$(tput setaf 5)
-      CYAN=$(tput setaf 6)
-      WHITE=$(tput setaf 7)
-    fi
+    BLACK=$(tput setaf 0)
+    RED=$(tput setaf 1)
+    GREEN=$(tput setaf 2)
+    YELLOW=$(tput setaf 3)
+    BLUE=$(tput setaf 4)
+    MAGENTA=$(tput setaf 5)
+    CYAN=$(tput setaf 6)
+    WHITE=$(tput setaf 7)
     BOLD=$(tput bold)
     RESET=$(tput sgr0)
 else
