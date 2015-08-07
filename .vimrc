@@ -20,7 +20,7 @@ Plugin 'gmarik/Vundle.vim'
 " ==================================================
 " Vundle Plugin Management
 " ==================================================
-Plugin 'fatih/molokai'
+" Functional Plugins
 Plugin 'vim-scripts/TaskList.vim'
 Plugin 'corntrace/bufexplorer'
 Plugin 'sjl/gundo.vim'
@@ -29,25 +29,35 @@ Plugin 'ervandew/supertab'
 Plugin 'majutsushi/tagbar'
 Plugin 'SirVer/ultisnips'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-markdown'
 Plugin 'xolox/vim-misc'
 Plugin 'tpope/vim-repeat'
 Plugin 'xolox/vim-session'
 Plugin 'tpope/vim-surround'
 Plugin 'honza/vim-snippets'
-Plugin 'fatih/vim-go'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/neocomplete.vim'
+" Language Plugins
 Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'bling/vim-airline'
+Plugin 'fatih/vim-go'
+Plugin 'tpope/vim-markdown'
 Plugin 'PProvost/vim-ps1'
+" UI Plugins
+Plugin 'fatih/molokai'
+Plugin 'bling/vim-airline'
+Bundle 'istepura/vim-toolbar-icons-silk'
+Plugin 'ryanoasis/vim-webdevicons'
 
 call vundle#end()           " required
 
 " Must be called after all vundle stuff
 syntax on
 filetype plugin indent on
+
+" Default to utf8 encoding
+set encoding=utf8
+" Default to unix line-endings, but support dos
+set fileformats=unix,dos
 
 " ==================================================
 " View/Color Settings
@@ -64,7 +74,7 @@ if has('gui_running')
             au GUIEnter * simalt ~x
         endif
     endif
-    set guifont=Source\ Code\ Pro\ Light:h15
+    set guifont=Sauce\ Code\ Powerline\ PNFT\ Mono:h12
     set guioptions+=T                   " Show our toolbar
 endif
 
@@ -204,6 +214,9 @@ nmap <leader>ft :set filetype?<CR>
 
 " Replace windows line endings
 map <leader>fw :%s/<C-q><C-m>/\r/g<CR>
+
+" Set the file format to unix
+map <leader>un :set ff=unix<CR>
 
 " ==================================================
 " Set Filetype/GUI Options
