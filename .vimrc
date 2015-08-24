@@ -66,16 +66,17 @@ colorscheme molokai
 let g:rehash256 = 1
 
 if has('gui_running')
+    set guioptions+=T                   " Show our toolbar
+    set guifont=Sauce\ Code\ Powerline\ Plus\ Nerd\ File\ Types\ Mono\ Plus\ Pomicons:h14
     if has("gui_macvim")
         set lines=75
         set columns=205
     elseif has("win32")
+        set guifont=Sauce\ Code\ Powerline\ PNFT\ Mono:h12
         if has("autocmd")
             au GUIEnter * simalt ~x
         endif
     endif
-    set guifont=Sauce\ Code\ Powerline\ PNFT\ Mono:h12
-    set guioptions+=T                   " Show our toolbar
 endif
 
 set synmaxcol=200
@@ -143,7 +144,7 @@ let g:neocomplete#enable_at_startup = 1
 let g:UltiSnipsSnippetDirectories=["bundle/vim-snippets/UltiSnips", "my_snippets"]
 
 " Set my name as the author
-let g:snips_author = 'ArrantSquid'
+let g:snips_author = 'John P. Neumann'
 " Set the docstrings to be normal, doxygen or sphinx based
 let g:ultisnips_python_style = 'sphinx'             " sphinx style docstrings
 
