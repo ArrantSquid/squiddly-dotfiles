@@ -31,7 +31,7 @@ else
     RESET="\033[m"
 fi
 # Custom bash prompt via kirsle.net/wizards/ps1.html
-export PS1="\[$BLUE\]\W\[$RED\] >\[$YELLOW\]>\[$GREEN\]>\[$MAGENTA\] \u \[$WHITE\]\[$RESET\]"
+export PS1="\[$BLUE\]\W\[$RED\] >\[$YELLOW\]>\[$GREEN\]>\[$MAGENTA\] \u \[$WHITE\]\[$RESET\]$ "
 export HISTCONTROL=ignoredups
 export HISTCONTROL=erasedups
 export HISTIGNORE='pwd:ll:ls:cd ..:cd ../..:listenvs:src:ak:curip:startdocker'
