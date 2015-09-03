@@ -49,7 +49,7 @@ createenv() {
 workon()
 {
     deacenv;
-	source $VIRTUAL_ENV_DIR/$1/bin/activate;
+	. $VIRTUAL_ENV_DIR/$1/bin/activate;
 }
 
 # Generate a patch file
