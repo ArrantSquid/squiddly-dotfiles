@@ -27,15 +27,45 @@ def python():
 
 
 @task
+def go():
+    """Install go."""
+    local('brew install go')
+
+
+@task
+def nodejs():
+    """Install node.js."""
+    local('brew install nodejs')
+
+
+@task
 def git():
     """Install git."""
     local('brew install git')
 
 
 @task
+def perforce():
+    """Installs perforce and the p4v client."""
+    local('brew install homebrew/binary/perforce')
+    local('brew cask install p4v')
+
+
+@task
+def coretools():
+    """Basics that are used regularly."""
+    apps = [
+        'coreutils', 'ctags', 'cmake', 'tree', 'htop',
+        'wget', 'fortune', 'cowsay'
+    ]
+    local('brew install {apps}'.format(apps=' '.join(apps)))
+
+
+@task
 def setup_vimdirs():
     """Sets up vim directories."""
     _create_vimdirs()
+
 
 @task
 def vim():
@@ -121,6 +151,18 @@ def dotfiles_symlinks(repo_dir):
         _create_symlinks(
             source=source, destination=dest, backup=backup
         )
+
+
+@task
+def dockertoolbox():
+    """Installs dockertoolbox."""
+    local('brew cask install dockertoolbox')
+
+
+@task
+def vagrant():
+    """Installs vagrant."""
+    local('brew cask install vagrant')
 
 
 def _create_vimdirs():
