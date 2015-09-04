@@ -17,3 +17,5 @@ brew install python
 pip install --upgrade pip setuptools
 # Install fabric
 pip install fabric
+# Install virtualenv
+pip install virtualenv
