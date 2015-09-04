@@ -52,16 +52,18 @@ def macvim():
 
 
 @task
-def powerline_fonts():
-    """Download and install the powerline fonts."""
-    foss_dir = os.path.join(
-        os.path.expanduser('~'),
-        'repos/foss'
-    )
-    if not os.path.exists(foss_dir):
-        local('mkdir -p {dirname}'.format(dirname=foss_dir))
-    with cd(foss_dir):
-        if not os.path.exists(os.path.join(foss_dir, 'powerline-fonts')):
+def powerline_fonts(repo_dir):
+    """Download and install the powerline fonts.
+
+    :param repo_dir: The base directory to check the repo out to.
+    :type repo_dir: str
+    :returns: None
+
+    """
+    if not os.path.exists(repo_dir):
+        local('mkdir -p {dirname}'.format(dirname=repo_dir))
+    with cd(repo_dir):
+        if not os.path.exists(os.path.join(repo_dir, 'powerline-fonts')):
             local('git clone git@github.com:powerline/fonts.git powerline-fonts')
         with cd('powerline-fonts'):
             local('./install.sh')
