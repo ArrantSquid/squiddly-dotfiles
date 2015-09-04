@@ -1,9 +1,14 @@
-# OS
+# Standards
+__pycache__/
+*.py[cod]
+*.so
 .DS_Store
 
 # vim
 *.swp
 .netrwhist
-
-# ignore sessions
 .vim/sessions
+.vim/bundle/*
+
+# Do not ignore these
+!.vim/bundle/johnp-snippets

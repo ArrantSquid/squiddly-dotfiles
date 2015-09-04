@@ -179,7 +179,7 @@ endsnippet
 snippet docs
 """${1:Brief description of file}
 
-.. module:: ${2:`!v Filename('$1', 'foo.bar')`}
+.. module:: ${2:`!p snip.rv=snip.basename or 'foo.bar'`}
 	:platform: Linux, MacOS${3:, Windows}
 
 .. moduleauthor:: ${4:`!v g:snips_author`}

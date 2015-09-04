@@ -5,7 +5,6 @@
 " ==================================================
 if has('vim_starting')
   set nocompatible " Do not try and be VI compatible
-  set runtimepath+=~/.vim/bundle/dart-vim-plugin " add dart to the runtimepath
 endif
 
 " ==================================================
@@ -45,7 +44,6 @@ Plugin 'PProvost/vim-ps1'
 " UI Plugins
 Plugin 'fatih/molokai'
 Plugin 'bling/vim-airline'
-Bundle 'istepura/vim-toolbar-icons-silk'
 Plugin 'ryanoasis/vim-webdevicons'
 
 call vundle#end()           " required
@@ -67,7 +65,7 @@ let g:rehash256 = 1
 
 if has('gui_running')
     set guioptions+=T                   " Show our toolbar
-    set guifont=Sauce\ Code\ Powerline\ Plus\ Nerd\ File\ Types\ Mono\ Plus\ Pomicons:h14
+    set guifont=Sauce\ Code\ Powerline\ Light:h14
     if has("gui_macvim")
         set lines=75
         set columns=205
@@ -140,11 +138,14 @@ set directory=~/.vim_swap//
 " ==================================================
 " Set NeoComplete to run
 let g:neocomplete#enable_at_startup = 1
-" Set the snippet directories
-let g:UltiSnipsSnippetDirectories=["bundle/vim-snippets/UltiSnips", "my_snippets"]
 
-" Set my name as the author
+" Set ultisnips vars
 let g:snips_author = 'John P. Neumann'
+let g:snips_email = 'john.p.neumann@gmail.com'
+let g:snips_github = 'https://github.com/johnpneumann'
+let g:UltiSnipsSnippetsDir = '~/.vim/bundle/johnp-snippets/UltiSnips/'
+set rtp+=~/.vim/bundle/johnp-snippets
+
 " Set the docstrings to be normal, doxygen or sphinx based
 let g:ultisnips_python_style = 'sphinx'             " sphinx style docstrings
 
