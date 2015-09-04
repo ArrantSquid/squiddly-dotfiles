@@ -1,0 +1,241 @@
+#############################
+# My Custom Python Snippets #
+#############################
+global !p
+
+#########################################
+# Common Functions from python snippets #
+#########################################
+
+SINGLE_QUOTES = 0x1
+DOUBLE_QUOTES = 0x2
+def get_args(arglist):
+    args = [arg.split('=')[0].strip() for arg in arglist.split(',') if arg]
+    args = [arg for arg in args if arg and arg != "self"]
+
+    return args
+
+def get_quoting_style(snip):
+    style = snip.opt("g:ultisnips_python_quoting_style", "double")
+    if style == 'single':
+        return SINGLE_QUOTES
+    return DOUBLE_QUOTES
+
+def tripple_quotes(snip):
+    if get_quoting_style(snip) == SINGLE_QUOTES:
+        return "'''"
+    return '"""'
+
+##################################
+# Custom Googley Docstring Setup #
+##################################
+SPHINX_GOOGLEY = 0x4
+IGNORED_DOCSTRING_ARGS = [u'*args', u'**kwargs']
+
+def get_googley_style(snip):
+    style = snip.opt("g:ultisnips_python_style", "normal")
+
+    return SPHINX_GOOGLEY
+
+def format_googley_arg(arg, style):
+	if arg == '_no_args':
+		return "\tNone."
+	return "\t%s (str): @todo" % arg
+
+def format_googley_return(style, is_class=False, is_method=False):
+	if is_class or is_method:
+		return "Returns:\n\t\t\tstr. @todo"
+	return "Returns:\n\t\tstr. @todo"
+
+def write_googley_docstring_args(args, snip, is_class=False, is_method=False, is_init=False):
+	if not args:
+		if not is_class:
+			snip.rv += '{0}'.format(tripple_quotes(snip))
+			return
+
+	if is_class:
+		snip.rv += '' + snip.mkline('Args:', indent='\t')
+	elif is_init:
+		snip.rv += '\n' + snip.mkline('Args:', indent='\t\t')
+	elif is_method:
+		snip.rv += '' + snip.mkline('Args:', indent='\t\t')
+	else:
+		snip.rv += '' + snip.mkline('Args:', indent='\t')
+
+	style = get_googley_style(snip)
+	for arg in args:
+		snip += format_googley_arg(arg, style)
+
+def write_super_init_body(cname, args, snip):
+	snip += "super(" + cname + ", self).__init__()"
+
+	for arg in args:
+		snip += "self._%s = %s" % (arg, arg)
+
+endglobal
+
+########################################
+# Class & Special Method Name Snippets #
+########################################
+snippet cl "class with googley docstrings" b
+class ${1:MyClass}(${2:object}):
+	`!p snip.rv = tripple_quotes(snip)`${3:Docstring for $1 }
+`!p
+snip >> 1
+class_args = get_args(t[2])
+write_googley_docstring_args(class_args, snip, is_class=True)
+`
+	`!p snip.rv = tripple_quotes(snip)`
+
+	def __init__(self$4):
+		`!p snip.rv = tripple_quotes(snip)`${5:@todo: to be defined1}`!p
+
+snip.rv = ""
+snip >> 2
+args = get_args(t[4])
+snip.mkline("\n", indent='')
+args = [obj for obj in args if obj not in IGNORED_DOCSTRING_ARGS]
+
+write_googley_docstring_args(args, snip, is_method=True, is_init=True)
+
+if args:
+    snip += '{0}'.format(tripple_quotes(snip))
+
+write_super_init_body(t[1], args, snip)
+`
+		$0
+endsnippet
+
+snippet me "method with googley docstrings" b
+def ${1:function}(`!p
+if snip.indent:
+   snip.rv = 'self' + (", " if len(t[2]) else "")`${2:arg1}):
+	`!p snip.rv = tripple_quotes(snip)`${4:@todo: Docstring for $1}`!p
+snip.rv = ""
+snip >> 1
+
+args = get_args(t[2])
+args = [obj for obj in args if obj not in IGNORED_DOCSTRING_ARGS]
+if not args:
+	args = ['_no_args']
+if args:
+	snip.rv += '\n' + snip.mkline('', indent='')
+	write_googley_docstring_args(args, snip, is_method=True)
+
+style = get_googley_style(snip)
+snip += format_googley_return(style, is_method=True)
+snip += tripple_quotes(snip) `
+	${0:pass}
+endsnippet
+
+snippet de "function with googley docstrings" b
+def ${1:function}(`!p
+if snip.indent:
+   snip.rv = 'self' + (", " if len(t[2]) else "")`${2:arg1}):
+	`!p snip.rv = tripple_quotes(snip)`${4:@todo: Docstring for $1}`!p
+snip.rv = ""
+snip >> 1
+
+args = get_args(t[2])
+args = [obj for obj in args if obj not in IGNORED_DOCSTRING_ARGS]
+if not args:
+	args = ['_no_args']
+if args:
+	snip.rv += '\n' + snip.mkline('', indent='')
+	write_googley_docstring_args(args, snip)
+
+style = get_googley_style(snip)
+snip += format_googley_return(style)
+snip += tripple_quotes(snip) `
+	${0:pass}
+endsnippet
+
+########################################
+#  Common Snippets                     #
+########################################
+snippet simps "Setup our imports"
+# Built In
+
+# Third Party
+
+# Custom
+endsnippet
+
+snippet simpsd "Setup our imports"
+# Built In
+
+# Django
+
+# Third Party
+
+# Custom
+endsnippet
+
+snippet imp
+import ${1:module}
+endsnippet
+
+# Module Docstring
+snippet docs
+"""${1:Brief description of file}
+
+.. module:: ${2:`!p snip.rv=snip.basename or 'foo.bar'`}
+	:platform: Linux, MacOS${3:, Windows}
+
+.. moduleauthor:: ${4:`!v g:snips_author`}
+
+.. note::
+	${5:None}
+"""
+endsnippet
+
+# while condition
+snippet wh
+while ${1:condition}:
+	${2:# code...}
+endsnippet
+
+# for loop
+snippet for
+for ${1:needle} in ${2:haystack}:
+	${3:# code...}
+endsnippet
+
+# New Class
+snippet cln
+class ${1:ClassName}(${2:object}):
+	"""${3:docstring for $1}
+	Args:
+		$2
+	"""
+	def __init__(self, ${4:arg}):
+		"""Initialize our $1 object """
+		${5:super($1, self).__init__()}
+		self._$4 = $4
+		${6}
+endsnippet
+
+# Lambda
+snippet ld
+${1:var} = lambda ${2:vars} : ${3:action}
+endsnippet
+
+# Self
+snippet .
+self.
+endsnippet
+
+# List Comprehension
+snippet lc
+${1:var} = [${2:obj} for ${3:obj} in ${4:list} if ${5:something} in $3]
+endsnippet
+
+# Dict Comprehension
+snippet dc
+${1:var} = {${2:obj}[${3:attribute}]:$2 for $2 in ${4:dict_or_list}}
+endsnippet
+
+# __magic__
+snippet _
+__${1:init}__${2}
+endsnippet
