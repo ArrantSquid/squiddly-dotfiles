@@ -13,7 +13,7 @@
 # Built In
 
 # Third Party
-from fabric.api import run, sudo, task
+from fabric.api import run, sudo, task, local
 
 # Custom
 
@@ -63,4 +63,16 @@ def brew(pkgs):
     :returns: None
 
     """
-    sudo('brew install {packages}'.format(packages=pkgs))
+    local('brew install {packages}'.format(packages=pkgs))
+
+
+@task
+def cask(pkgs):
+    """Installs packages via homebrews cask.
+
+    :param pkgs: The packages to install separated by spaces.
+    :type pkgs: str
+    :returns: None
+
+    """
+    local('brew cask install {packages}'.format(packages=pkgs))
