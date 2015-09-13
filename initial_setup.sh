@@ -4,7 +4,6 @@
 # Author: johnpneumann
 #
 set -e
-
 # Install xcode command line tools
 xcode-select --install
 # Install homebrew
@@ -15,7 +14,5 @@ brew install caskroom/cask/brew-cask
 brew install python
 # Upgrade pip and setuptools
 pip install --upgrade pip setuptools
-# Install fabric
-pip install fabric
-# Install virtualenv
-pip install virtualenv
+# Install virtualenv and ansible
+pip install virtualenv ansible

@@ -312,7 +312,7 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>269 123 924 485 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 77 1274 694 0 0 1280 777 </string>
+	<string>0 69 1276 708 0 0 1280 777 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -3065,11 +3065,11 @@
 			<key>Name</key>
 			<string>Working</string>
 			<key>Non Ascii Font</key>
-			<string>SauceCodePowerline-Light 14</string>
+			<string>SauceCodePowerline-Light 15</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>SauceCodePowerline-Light 14</string>
+			<string>SauceCodePowerline-Light 15</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -5455,7 +5455,7 @@
 	<key>NoSyncTimeOfLastPromo</key>
 	<real>463000063.49664199</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>463000063.49694902</real>
+	<real>463677748.03365397</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -5522,7 +5522,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-09-03T19:07:40Z</date>
+	<date>2015-09-11T15:22:25Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -5575,7 +5575,7 @@
 				<key>Desired Rows</key>
 				<integer>25</integer>
 				<key>Height</key>
-				<real>781</real>
+				<real>694</real>
 				<key>Hide After Opening</key>
 				<false/>
 				<key>Screen</key>
@@ -6149,11 +6149,11 @@
 											<key>Name</key>
 											<string>RainbowStream</string>
 											<key>Non Ascii Font</key>
-											<string>Monaco 12</string>
+											<string>SauceCodePowerline-Light 14</string>
 											<key>Non-ASCII Anti Aliased</key>
 											<true/>
 											<key>Normal Font</key>
-											<string>SauceCodePowerlinePlusNerdFileTypesMonoPlusPomicons 14</string>
+											<string>SauceCodePowerline-Light 14</string>
 											<key>Option Key Sends</key>
 											<integer>0</integer>
 											<key>Prompt Before Closing 2</key>
@@ -6328,20 +6328,20 @@
 											<string></string>
 										</dict>
 										<key>Columns</key>
-										<integer>176</integer>
+										<integer>156</integer>
 										<key>Rows</key>
-										<integer>38</integer>
+										<integer>34</integer>
 										<key>Working Directory</key>
-										<string>/Users/johnneumann</string>
+										<string>/Users/johnpneumann</string>
 									</dict>
 									<key>View Type</key>
 									<string>SessionView</string>
 									<key>frame</key>
 									<dict>
 										<key>height</key>
-										<real>737</real>
+										<real>650</real>
 										<key>width</key>
-										<real>1440</real>
+										<real>1273</real>
 										<key>x</key>
 										<real>0.0</real>
 										<key>y</key>
@@ -6354,9 +6354,9 @@
 							<key>frame</key>
 							<dict>
 								<key>height</key>
-								<real>737</real>
+								<real>650</real>
 								<key>width</key>
-								<real>1440</real>
+								<real>1273</real>
 								<key>x</key>
 								<real>0.0</real>
 								<key>y</key>
@@ -6933,11 +6933,11 @@
 											<key>Name</key>
 											<string>Runserver</string>
 											<key>Non Ascii Font</key>
-											<string>Monaco 12</string>
+											<string>SauceCodePowerline-Light 14</string>
 											<key>Non-ASCII Anti Aliased</key>
 											<true/>
 											<key>Normal Font</key>
-											<string>SauceCodePowerlinePlusNerdFileTypesMonoPlusPomicons 14</string>
+											<string>SauceCodePowerline-Light 14</string>
 											<key>Option Key Sends</key>
 											<integer>0</integer>
 											<key>Prompt Before Closing 2</key>
@@ -7112,20 +7112,20 @@
 											<string></string>
 										</dict>
 										<key>Columns</key>
-										<integer>176</integer>
+										<integer>156</integer>
 										<key>Rows</key>
-										<integer>38</integer>
+										<integer>34</integer>
 										<key>Working Directory</key>
-										<string>/Users/johnneumann/repos/arrantsquid/tamales-locos/tamales_locos_web</string>
+										<string>/Users/johnpneumann</string>
 									</dict>
 									<key>View Type</key>
 									<string>SessionView</string>
 									<key>frame</key>
 									<dict>
 										<key>height</key>
-										<real>737</real>
+										<real>650</real>
 										<key>width</key>
-										<real>1440</real>
+										<real>1273</real>
 										<key>x</key>
 										<real>0.0</real>
 										<key>y</key>
@@ -7138,9 +7138,9 @@
 							<key>frame</key>
 							<dict>
 								<key>height</key>
-								<real>737</real>
+								<real>650</real>
 								<key>width</key>
-								<real>1440</real>
+								<real>1273</real>
 								<key>x</key>
 								<real>0.0</real>
 								<key>y</key>
@@ -7717,11 +7717,11 @@
 											<key>Name</key>
 											<string>iPython</string>
 											<key>Non Ascii Font</key>
-											<string>Monaco 12</string>
+											<string>SauceCodePowerline-Light 14</string>
 											<key>Non-ASCII Anti Aliased</key>
 											<true/>
 											<key>Normal Font</key>
-											<string>SauceCodePowerlinePlusNerdFileTypesMonoPlusPomicons 14</string>
+											<string>SauceCodePowerline-Light 14</string>
 											<key>Option Key Sends</key>
 											<integer>0</integer>
 											<key>Prompt Before Closing 2</key>
@@ -7896,20 +7896,20 @@
 											<string></string>
 										</dict>
 										<key>Columns</key>
-										<integer>176</integer>
+										<integer>156</integer>
 										<key>Rows</key>
-										<integer>38</integer>
+										<integer>34</integer>
 										<key>Working Directory</key>
-										<string>/Users/johnneumann/repos/arrantsquid/tamales-locos</string>
+										<string>/Users/johnpneumann</string>
 									</dict>
 									<key>View Type</key>
 									<string>SessionView</string>
 									<key>frame</key>
 									<dict>
 										<key>height</key>
-										<real>737</real>
+										<real>650</real>
 										<key>width</key>
-										<real>1440</real>
+										<real>1273</real>
 										<key>x</key>
 										<real>0.0</real>
 										<key>y</key>
@@ -7922,9 +7922,9 @@
 							<key>frame</key>
 							<dict>
 								<key>height</key>
-								<real>737</real>
+								<real>650</real>
 								<key>width</key>
-								<real>1440</real>
+								<real>1273</real>
 								<key>x</key>
 								<real>0.0</real>
 								<key>y</key>
@@ -8501,11 +8501,11 @@
 											<key>Name</key>
 											<string>Unit Tests</string>
 											<key>Non Ascii Font</key>
-											<string>Monaco 12</string>
+											<string>SauceCodePowerline-Light 14</string>
 											<key>Non-ASCII Anti Aliased</key>
 											<true/>
 											<key>Normal Font</key>
-											<string>SauceCodePowerlinePlusNerdFileTypesMonoPlusPomicons 14</string>
+											<string>SauceCodePowerline-Light 14</string>
 											<key>Option Key Sends</key>
 											<integer>0</integer>
 											<key>Prompt Before Closing 2</key>
@@ -8680,20 +8680,20 @@
 											<string></string>
 										</dict>
 										<key>Columns</key>
-										<integer>176</integer>
+										<integer>156</integer>
 										<key>Rows</key>
-										<integer>38</integer>
+										<integer>34</integer>
 										<key>Working Directory</key>
-										<string>/Users/johnneumann/repos/arrantsquid/tamales-locos</string>
+										<string>/Users/johnpneumann</string>
 									</dict>
 									<key>View Type</key>
 									<string>SessionView</string>
 									<key>frame</key>
 									<dict>
 										<key>height</key>
-										<real>737</real>
+										<real>650</real>
 										<key>width</key>
-										<real>1440</real>
+										<real>1273</real>
 										<key>x</key>
 										<real>0.0</real>
 										<key>y</key>
@@ -8706,9 +8706,9 @@
 							<key>frame</key>
 							<dict>
 								<key>height</key>
-								<real>737</real>
+								<real>650</real>
 								<key>width</key>
-								<real>1440</real>
+								<real>1273</real>
 								<key>x</key>
 								<real>0.0</real>
 								<key>y</key>
@@ -9285,11 +9285,11 @@
 											<key>Name</key>
 											<string>Working</string>
 											<key>Non Ascii Font</key>
-											<string>Monaco 12</string>
+											<string>SauceCodePowerline-Light 14</string>
 											<key>Non-ASCII Anti Aliased</key>
 											<true/>
 											<key>Normal Font</key>
-											<string>SauceCodePowerlinePlusNerdFileTypesMonoPlusPomicons 14</string>
+											<string>SauceCodePowerline-Light 14</string>
 											<key>Option Key Sends</key>
 											<integer>0</integer>
 											<key>Prompt Before Closing 2</key>
@@ -9464,20 +9464,20 @@
 											<string></string>
 										</dict>
 										<key>Columns</key>
-										<integer>176</integer>
+										<integer>156</integer>
 										<key>Rows</key>
-										<integer>38</integer>
+										<integer>34</integer>
 										<key>Working Directory</key>
-										<string>/Users/johnneumann/repos/arrantsquid/tamales-locos</string>
+										<string>/Users/johnpneumann</string>
 									</dict>
 									<key>View Type</key>
 									<string>SessionView</string>
 									<key>frame</key>
 									<dict>
 										<key>height</key>
-										<real>737</real>
+										<real>650</real>
 										<key>width</key>
-										<real>1440</real>
+										<real>1273</real>
 										<key>x</key>
 										<real>0.0</real>
 										<key>y</key>
@@ -9490,9 +9490,9 @@
 							<key>frame</key>
 							<dict>
 								<key>height</key>
-								<real>737</real>
+								<real>650</real>
 								<key>width</key>
-								<real>1440</real>
+								<real>1273</real>
 								<key>x</key>
 								<real>0.0</real>
 								<key>y</key>
@@ -10069,11 +10069,11 @@
 											<key>Name</key>
 											<string>Working</string>
 											<key>Non Ascii Font</key>
-											<string>Monaco 12</string>
+											<string>SauceCodePowerline-Light 14</string>
 											<key>Non-ASCII Anti Aliased</key>
 											<true/>
 											<key>Normal Font</key>
-											<string>SauceCodePowerlinePlusNerdFileTypesMonoPlusPomicons 14</string>
+											<string>SauceCodePowerline-Light 14</string>
 											<key>Option Key Sends</key>
 											<integer>0</integer>
 											<key>Prompt Before Closing 2</key>
@@ -10248,20 +10248,20 @@
 											<string></string>
 										</dict>
 										<key>Columns</key>
-										<integer>176</integer>
+										<integer>156</integer>
 										<key>Rows</key>
-										<integer>38</integer>
+										<integer>34</integer>
 										<key>Working Directory</key>
-										<string>/Users/johnneumann/repos/arrantsquid/squiddly-dotfiles</string>
+										<string>/Users/johnpneumann</string>
 									</dict>
 									<key>View Type</key>
 									<string>SessionView</string>
 									<key>frame</key>
 									<dict>
 										<key>height</key>
-										<real>737</real>
+										<real>650</real>
 										<key>width</key>
-										<real>1440</real>
+										<real>1273</real>
 										<key>x</key>
 										<real>0.0</real>
 										<key>y</key>
@@ -10274,9 +10274,9 @@
 							<key>frame</key>
 							<dict>
 								<key>height</key>
-								<real>737</real>
+								<real>650</real>
 								<key>width</key>
-								<real>1440</real>
+								<real>1273</real>
 								<key>x</key>
 								<real>0.0</real>
 								<key>y</key>
@@ -10853,11 +10853,11 @@
 											<key>Name</key>
 											<string>Working</string>
 											<key>Non Ascii Font</key>
-											<string>Monaco 12</string>
+											<string>SauceCodePowerline-Light 14</string>
 											<key>Non-ASCII Anti Aliased</key>
 											<true/>
 											<key>Normal Font</key>
-											<string>SauceCodePowerlinePlusNerdFileTypesMonoPlusPomicons 14</string>
+											<string>SauceCodePowerline-Light 14</string>
 											<key>Option Key Sends</key>
 											<integer>0</integer>
 											<key>Prompt Before Closing 2</key>
@@ -11032,20 +11032,20 @@
 											<string></string>
 										</dict>
 										<key>Columns</key>
-										<integer>176</integer>
+										<integer>156</integer>
 										<key>Rows</key>
-										<integer>38</integer>
+										<integer>34</integer>
 										<key>Working Directory</key>
-										<string>/Users/johnneumann/repos/incontext/ArtPI</string>
+										<string>/Users/johnpneumann</string>
 									</dict>
 									<key>View Type</key>
 									<string>SessionView</string>
 									<key>frame</key>
 									<dict>
 										<key>height</key>
-										<real>737</real>
+										<real>650</real>
 										<key>width</key>
-										<real>1440</real>
+										<real>1273</real>
 										<key>x</key>
 										<real>0.0</real>
 										<key>y</key>
@@ -11058,9 +11058,9 @@
 							<key>frame</key>
 							<dict>
 								<key>height</key>
-								<real>737</real>
+								<real>650</real>
 								<key>width</key>
-								<real>1440</real>
+								<real>1273</real>
 								<key>x</key>
 								<real>0.0</real>
 								<key>y</key>
@@ -11637,11 +11637,11 @@
 											<key>Name</key>
 											<string>Working</string>
 											<key>Non Ascii Font</key>
-											<string>Monaco 12</string>
+											<string>SauceCodePowerline-Light 14</string>
 											<key>Non-ASCII Anti Aliased</key>
 											<true/>
 											<key>Normal Font</key>
-											<string>SauceCodePowerlinePlusNerdFileTypesMonoPlusPomicons 14</string>
+											<string>SauceCodePowerline-Light 14</string>
 											<key>Option Key Sends</key>
 											<integer>0</integer>
 											<key>Prompt Before Closing 2</key>
@@ -11816,20 +11816,20 @@
 											<string></string>
 										</dict>
 										<key>Columns</key>
-										<integer>176</integer>
+										<integer>156</integer>
 										<key>Rows</key>
-										<integer>38</integer>
+										<integer>34</integer>
 										<key>Working Directory</key>
-										<string>/Users/johnneumann/tmp/vgnt</string>
+										<string>/Users/johnpneumann</string>
 									</dict>
 									<key>View Type</key>
 									<string>SessionView</string>
 									<key>frame</key>
 									<dict>
 										<key>height</key>
-										<real>737</real>
+										<real>650</real>
 										<key>width</key>
-										<real>1440</real>
+										<real>1273</real>
 										<key>x</key>
 										<real>0.0</real>
 										<key>y</key>
@@ -11842,9 +11842,9 @@
 							<key>frame</key>
 							<dict>
 								<key>height</key>
-								<real>737</real>
+								<real>650</real>
 								<key>width</key>
-								<real>1440</real>
+								<real>1273</real>
 								<key>x</key>
 								<real>0.0</real>
 								<key>y</key>
@@ -12433,11 +12433,11 @@
 											<key>Name</key>
 											<string>SSH</string>
 											<key>Non Ascii Font</key>
-											<string>Monaco 12</string>
+											<string>SauceCodePowerline-Light 14</string>
 											<key>Non-ASCII Anti Aliased</key>
 											<true/>
 											<key>Normal Font</key>
-											<string>SauceCodePowerlinePlusNerdFileTypesMonoPlusPomicons 14</string>
+											<string>SauceCodePowerline-Light 14</string>
 											<key>Option Key Sends</key>
 											<integer>0</integer>
 											<key>Prompt Before Closing 2</key>
@@ -12612,20 +12612,20 @@
 											<string></string>
 										</dict>
 										<key>Columns</key>
-										<integer>176</integer>
+										<integer>156</integer>
 										<key>Rows</key>
-										<integer>38</integer>
+										<integer>34</integer>
 										<key>Working Directory</key>
-										<string>/Users/johnneumann</string>
+										<string>/Users/johnpneumann</string>
 									</dict>
 									<key>View Type</key>
 									<string>SessionView</string>
 									<key>frame</key>
 									<dict>
 										<key>height</key>
-										<real>737</real>
+										<real>650</real>
 										<key>width</key>
-										<real>1440</real>
+										<real>1273</real>
 										<key>x</key>
 										<real>0.0</real>
 										<key>y</key>
@@ -12638,9 +12638,9 @@
 							<key>frame</key>
 							<dict>
 								<key>height</key>
-								<real>737</real>
+								<real>650</real>
 								<key>width</key>
-								<real>1440</real>
+								<real>1273</real>
 								<key>x</key>
 								<real>0.0</real>
 								<key>y</key>
@@ -13229,11 +13229,11 @@
 											<key>Name</key>
 											<string>SSH</string>
 											<key>Non Ascii Font</key>
-											<string>Monaco 12</string>
+											<string>SauceCodePowerline-Light 14</string>
 											<key>Non-ASCII Anti Aliased</key>
 											<true/>
 											<key>Normal Font</key>
-											<string>SauceCodePowerlinePlusNerdFileTypesMonoPlusPomicons 14</string>
+											<string>SauceCodePowerline-Light 14</string>
 											<key>Option Key Sends</key>
 											<integer>0</integer>
 											<key>Prompt Before Closing 2</key>
@@ -13408,20 +13408,20 @@
 											<string></string>
 										</dict>
 										<key>Columns</key>
-										<integer>176</integer>
+										<integer>156</integer>
 										<key>Rows</key>
-										<integer>38</integer>
+										<integer>34</integer>
 										<key>Working Directory</key>
-										<string>/Users/johnneumann/repos/incontext/sysadmin/configuration/fabfile</string>
+										<string>/Users/johnpneumann</string>
 									</dict>
 									<key>View Type</key>
 									<string>SessionView</string>
 									<key>frame</key>
 									<dict>
 										<key>height</key>
-										<real>737</real>
+										<real>650</real>
 										<key>width</key>
-										<real>1440</real>
+										<real>1273</real>
 										<key>x</key>
 										<real>0.0</real>
 										<key>y</key>
@@ -13434,9 +13434,9 @@
 							<key>frame</key>
 							<dict>
 								<key>height</key>
-								<real>737</real>
+								<real>650</real>
 								<key>width</key>
-								<real>1440</real>
+								<real>1273</real>
 								<key>x</key>
 								<real>0.0</real>
 								<key>y</key>
@@ -13452,13 +13452,13 @@
 				<key>TerminalGuid</key>
 				<string>pty-42CD41C9-0A04-4D83-8FB0-A3DCC1BD028E</string>
 				<key>Width</key>
-				<real>1440</real>
+				<real>1273</real>
 				<key>Window Type</key>
 				<integer>0</integer>
 				<key>X Origin</key>
 				<real>0.0</real>
 				<key>Y Origin</key>
-				<real>96</real>
+				<real>83</real>
 			</dict>
 		</array>
 	</dict>

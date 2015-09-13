@@ -41,6 +41,8 @@ Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-markdown'
 Plugin 'PProvost/vim-ps1'
+Plugin 'chase/vim-ansible-yaml'
+" Plugin 'avakhov/vim-yaml'
 " UI Plugins
 Plugin 'fatih/molokai'
 Plugin 'bling/vim-airline'
@@ -54,8 +56,14 @@ filetype plugin indent on
 
 " Default to utf8 encoding
 set encoding=utf8
+set termencoding=utf-8
 " Default to unix line-endings, but support dos
 set fileformats=unix,dos
+" Set terminal color to 256
+set t_Co=256
+set term=xterm-256color
+" Statusline replacements
+set fillchars+=stl:\ ,stlnc:\
 
 " ==================================================
 " View/Color Settings
@@ -63,12 +71,15 @@ set fileformats=unix,dos
 colorscheme molokai
 let g:rehash256 = 1
 
+set guifont=Sauce\ Code\ Powerline\ Light:h15
 if has('gui_running')
     set guioptions+=T                   " Show our toolbar
-    set guifont=Sauce\ Code\ Powerline\ Light:h14
+    " set guifont=Hack:h14
     if has("gui_macvim")
         set lines=75
         set columns=205
+        " set guifont=Sauce\ Code\ Powerline\ Light:h15
+        set guifont=Inconsolata\ for\ Powerline:h15
     elseif has("win32")
         set guifont=Sauce\ Code\ Powerline\ PNFT\ Mono:h12
         if has("autocmd")
@@ -181,6 +192,14 @@ nnoremap <F5> :GundoToggle<CR>
 " TaskList Plugin
 nnoremap T :TaskList<CR>
 
+" vim-airline options
+let g:Powerline_symbols = 'fancy'
+let g:airline_powerline_fonts = 1
+
+" ansible options
+let g:ansible_options = {'ignore_blank_lines': 0}
+
+
 " ==================================================
 " Key Mappings
 " ==================================================
@@ -241,10 +260,6 @@ if has("autocmd")
 
     " Ensure that all my auto formating is minimal
     autocmd Filetype * setlocal formatoptions=t
-    " Filetype specific tabbing
-    autocmd FileType * setlocal ts=4 sts=4 sw=4 expandtab
-    " Make sure we're not hitting long lines
-    autocmd Filetype python let b:textwidth=79
     " Set the default file to be python
     autocmd BufEnter * if &filetype == "" | setlocal ft=python | endif
 
