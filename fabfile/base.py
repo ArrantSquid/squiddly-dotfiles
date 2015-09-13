@@ -11,6 +11,7 @@
     None
 """
 # Built In
+from distutils.util import strtobool
 
 # Third Party
 from fabric.api import run, sudo, task, local
@@ -55,24 +56,45 @@ def yum(pkgs):
 
 
 @task
-def brew(pkgs):
+def brew(pkgs, use_cask=False):
     """Installs packages via homebrew.
 
     :param pkgs: The packages to install separated by spaces.
     :type pkgs: str
+    :param use_cask: Use cask to install or not.
+    :type use_cask: bool
     :returns: None
 
     """
-    local('brew install {packages}'.format(packages=pkgs))
+    cmd = ['brew']
+    if strtobool(str(use_cask)):
+        cmd.append('cask')
+    cmd.append('install')
+    cmd.append(pkgs)
+    local(' '.join(cmd))
 
 
 @task
-def cask(pkgs):
-    """Installs packages via homebrews cask.
+def gitclone(repo, destination):
+    """Git clone a repo to a directory.
 
-    :param pkgs: The packages to install separated by spaces.
-    :type pkgs: str
+    :param repo: The url to the repository to clone.
+    :type repo: str
+    :param destination: Where to clone the repo to on disk.
+    :type destination: str
     :returns: None
 
     """
-    local('brew cask install {packages}'.format(packages=pkgs))
+    local('git clone {repo} {dest}'.format(repo=repo, dest=destination))
+
+
+@task
+def curl_download(url):
+    """Use curl to download a file.
+
+    :param url: The url to download from.
+    :type url: str
+    :returns: None
+
+    """
+    local('curl -LOC - {url}'.format(url=url))

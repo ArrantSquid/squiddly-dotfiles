@@ -18,7 +18,7 @@ import sys
 from fabric.api import local, cd, task, execute
 
 # Custom
-from base import brew, cask
+from base import brew
 from common import setup_vimdirs
 
 
@@ -33,79 +33,34 @@ def coretools():
 
 
 @task
-def python():
-    """Install python."""
-    brew('python')
-
-
-@task
-def go():
-    """Install go."""
-    brew('go')
-
-
-@task
-def node():
-    """Install node.js."""
-    brew('node')
-
-
-@task
-def git():
-    """Install git."""
-    brew('git')
-
-
-@task
-def perforce():
-    """Installs perforce and the p4v client."""
-    local('brew tap homebrew/binary')
-    brew('homebrew/binary/perforce')
-    cask('p4v')
-
-
-@task
-def ruby():
-    """Install ruby."""
-    brew('ruby')
-
-
-@task
-def postgres():
-    """Install postgres."""
-    brew('postgresql')
-
-
-@task
-def sqlite():
-    """Install sqlite."""
-    brew('sqlite')
-
-
-@task
-def dbeaver():
-    """Install DBeaver."""
-    cask('dbeaver-community')
+def skype():
+    """Installs skype."""
+    brew('skype', True)
 
 
 @task
 def java6():
     """Install Java6."""
     local('brew tap caskroom/versions')
-    cask('java6')
+    brew('java6', True)
 
 
 @task
-def skype():
-    """Installs skype."""
-    cask('skype')
+def p4v():
+    """Install p4v."""
+    brew('p4v', True)
 
 
 @task
-def vim():
-    """Install vim."""
-    brew('vim --with-lua --with-python')
-    execute(setup_vimdirs)
+def dbeaver():
+    """Install DBeaver."""
+    brew('dbeaver-community', True)
+
+
+@task
+def node():
+    """Install node.js."""
+    brew('node', True)
 
 
 @task
@@ -118,10 +73,10 @@ def macvim():
 @task
 def dockertoolbox():
     """Installs dockertoolbox."""
-    cask('dockertoolbox')
+    brew('dockertoolbox', True)
 
 
 @task
 def vagrant():
     """Installs vagrant."""
-    cask('vagrant')
+    brew('vagrant', True)

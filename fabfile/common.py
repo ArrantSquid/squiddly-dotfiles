@@ -15,9 +15,11 @@ import os
 import sys
 
 # Third Party
-from fabric.api import local, cd, task, execute
+from fabric.contrib.console import confirm
+from fabric.api import local, lcd, task, execute
 
 # Custom
+from base import gitclone
 
 
 @task
@@ -48,11 +50,17 @@ def powerline_fonts(repo_dir):
 
     """
     execute(setup_devdirs)
-    with cd(repo_dir):
-        if not os.path.exists(os.path.join(repo_dir, 'powerline-fonts')):
-            local('git clone git@github.com:powerline/fonts.git powerline-fonts')
-        with cd('powerline-fonts'):
-            local('./install.sh')
+    dest_dir = os.path.join(repo_dir, 'powerline-fonts')
+    if repo_dir.startswith('~'):
+        dest_dir = os.path.join(os.path.expanduser(repo_dir), 'powerline-fonts')
+    if os.path.exists(dest_dir):
+        if confirm("Repo exists. Delete and re-download? "):
+            local('rm -rf {powerline_dir}'.format(powerline_dir=dest_dir))
+            execute(gitclone, 'git@github.com:powerline/fonts.git', dest_dir)
+    else:
+        execute(gitclone, 'git@github.com:powerline/fonts.git', dest_dir)
+    with lcd(dest_dir):
+        local('./install.sh')
 
 
 @task
@@ -70,7 +78,7 @@ def dotfiles(repo_dir):
     )
     if os.path.exists(dotfiles_dir):
         sys.exit('dotfiles repo already exists')
-    with cd(repo_dir):
+    with lcd(repo_dir):
         local('git clone git@github.com:johnpneumann/dotfiles.git')
 
 
