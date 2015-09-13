@@ -1,0 +1,6 @@
+# vim:ft=ansible:
+---
+- name: Install my development environment
+
+  roles:
+    - osx

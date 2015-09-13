@@ -1,0 +1,71 @@
+# vim:ft=ansible:
+---
+- hosts: all
+  vars:
+    app:
+      - postgresql
+      - sqlite
+    utility:
+      - coretools
+      - ctags
+      - cmake
+      - tree
+      - htop
+      - wget
+      - fortune
+      - cowsay
+      - git
+    language:
+      - ruby
+      - go
+      - node
+    desktop:
+      - google-chrome
+      - firefox
+      - steam
+      - spotify
+      - adium
+      - alfred
+      - boom
+      - dropbox
+      - dockertoolbox
+      - vagrant
+      - hipchat
+      - iterm2
+      - dbeaver-community
+      # - daisydisk
+
+  tasks:
+  - name: Install XCode CLI Tools
+    shell: xcode-select --install
+
+  - name: Install Homebrew
+    shell: ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+  - name: Update Homebrew
+    shell: brew update; brew upgrade
+
+  - name: Install Homebrew Cask
+    shell: brew install caskroom/cask/brew-cask
+
+  - name: Install Utility packages from Homebrew
+    homebrew: name={{item}} state=present
+    with_items: utility
+
+  - name: Install Language packages from Homebrew
+    homebrew: name={{item}} state=present
+    with_items: language
+
+  - name: Upgrade Pip and SetupTools
+    shell: pip install --upgrade pip setuptools
+
+  - name: Install Virtualenv
+    shell: pip install virtualenv
+
+  - name: Install App packages from Homebrew
+    homebrew: name={{item}} state=present
+    with_items: app
+
+  - name: Install Desktop Apps
+    shell: brew cask install {{ item }}
+    with_items: desktop

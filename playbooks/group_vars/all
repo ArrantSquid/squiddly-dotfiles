@@ -1,0 +1,32 @@
+# vim:ft=ansible:
+app:
+  - postgresql
+  - sqlite
+utility:
+  - coretools
+  - ctags
+  - cmake
+  - tree
+  - htop
+  - wget
+  - fortune
+  - cowsay
+  - git
+language:
+  - ruby
+  - go
+  - node
+desktop:
+  - google-chrome
+  - firefox
+  - steam
+  - spotify
+  - adium
+  - alfred
+  - boom
+  - dropbox
+  - dockertoolbox
+  - vagrant
+  - hipchat
+  - iterm2
+  - dbeaver-community
