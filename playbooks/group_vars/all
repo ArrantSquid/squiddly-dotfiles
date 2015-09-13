@@ -19,7 +19,6 @@ language:
 desktop:
   - google-chrome
   - firefox
-  - steam
   - spotify
   - adium
   - alfred
