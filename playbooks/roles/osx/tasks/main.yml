@@ -33,3 +33,6 @@
 - name: Install Desktop Apps
   shell: brew cask install {{ item }}
   with_items: desktop
+
+- name: Change Screenshot location
+  shell: mkdir ~/Pictures/screenshots;defaults write com.apple.screencapture location ~/Pictures/screenshots;killall SystemUIServer
