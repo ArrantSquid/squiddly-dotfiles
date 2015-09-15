@@ -312,7 +312,7 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>269 123 924 485 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 69 1276 708 0 0 1280 777 </string>
+	<string>0 83 1280 694 0 0 1280 777 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -3065,11 +3065,11 @@
 			<key>Name</key>
 			<string>Working</string>
 			<key>Non Ascii Font</key>
-			<string>SauceCodePowerline-Light 15</string>
+			<string>SauceCodePowerline-Light 14</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>SauceCodePowerline-Light 15</string>
+			<string>SauceCodePowerline-Light 14</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -5455,7 +5455,7 @@
 	<key>NoSyncTimeOfLastPromo</key>
 	<real>463000063.49664199</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>463677748.03365397</real>
+	<real>463877058.34415299</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -5522,7 +5522,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-09-11T15:22:25Z</date>
+	<date>2015-09-13T22:44:15Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
