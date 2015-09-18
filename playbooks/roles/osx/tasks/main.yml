@@ -20,11 +20,14 @@
   homebrew: name={{item}} state=present
   with_items: language
 
-- name: Upgrade Pip and SetupTools
-  shell: pip install --upgrade pip setuptools
+- name: Upgrade Pip and Setuptools
+  pip: name={{item}} state=latest
+  with_items:
+  - pip
+  - setuptools
 
 - name: Install Virtualenv
-  shell: pip install virtualenv
+  pip: name=virtualenv state=latest
 
 - name: Install App packages from Homebrew
   homebrew: name={{item}} state=present
@@ -34,5 +37,8 @@
   shell: brew cask install {{ item }}
   with_items: desktop
 
+- name: Create screenshot directory
+  file: path=~/Pictures/screenshots state=directory
+
 - name: Change Screenshot location
-  shell: mkdir ~/Pictures/screenshots;defaults write com.apple.screencapture location ~/Pictures/screenshots;killall SystemUIServer
+  shell: defaults write com.apple.screencapture location ~/Pictures/screenshots;killall SystemUIServer
