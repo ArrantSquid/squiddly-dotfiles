@@ -2,8 +2,12 @@
 app:
   - postgresql
   - sqlite
+  - android
+  - android-ndk-r10c
+work:
+  - freetds --with-unixodbc
 utility:
-  - coretools
+  - coreutils
   - ctags
   - cmake
   - tree
@@ -29,4 +33,4 @@ desktop:
   - hipchat
   - iterm2
   - dbeaver-community
-  - cybreduck
+  - cyberduck

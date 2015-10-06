@@ -1,16 +1,16 @@
 # vim:ft=ansible:
 ---
-- name: Install XCode CLI Tools
-  shell: xcode-select --install
-
-- name: Install Homebrew
-  shell: ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
 - name: Update Homebrew
   shell: brew update; brew upgrade
 
+- name: Tap Homebrew Versions
+  shell: brew tap homebrew/versions
+
 - name: Install Homebrew Cask
   shell: brew install caskroom/cask/brew-cask
+
+- name: Install Java
+  shell: brew cask install java
 
 - name: Install Utility packages from Homebrew
   homebrew: name={{item}} state=present
@@ -36,6 +36,10 @@
 - name: Install Desktop Apps
   shell: brew cask install {{ item }}
   with_items: desktop
+
+- name: Install Work Related Items
+  homebrew: name={{item}} state=present
+  with_items: work
 
 - name: Create screenshot directory
   file: path=~/Pictures/screenshots state=directory
