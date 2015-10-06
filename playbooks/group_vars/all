@@ -4,8 +4,6 @@ app:
   - sqlite
   - android
   - android-ndk-r10c
-work:
-  - freetds --with-unixodbc
 utility:
   - coreutils
   - ctags

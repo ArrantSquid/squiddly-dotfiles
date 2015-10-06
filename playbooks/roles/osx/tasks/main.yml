@@ -10,7 +10,7 @@
   shell: brew install caskroom/cask/brew-cask
 
 - name: Install Java
-  shell: brew cask install java
+  homebrew_cask: name=java state=present
 
 - name: Install Utility packages from Homebrew
   homebrew: name={{item}} state=present
@@ -34,12 +34,11 @@
   with_items: app
 
 - name: Install Desktop Apps
-  shell: brew cask install {{ item }}
+  homebrew_cask: name={{item}} state=present
   with_items: desktop
 
-- name: Install Work Related Items
-  homebrew: name={{item}} state=present
-  with_items: work
+- name: Install Freetds for Azure
+  homebrew: name=freetds state=present install_options=with-unixodbc
 
 - name: Create screenshot directory
   file: path=~/Pictures/screenshots state=directory
