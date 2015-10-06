@@ -1,0 +1,34 @@
+# vim:ft=ansible:
+app:
+  - postgresql
+  - sqlite
+  - android
+  - android-ndk-r10c
+utility:
+  - coreutils
+  - ctags
+  - cmake
+  - tree
+  - htop
+  - wget
+  - fortune
+  - cowsay
+  - git
+language:
+  - ruby
+  - go
+  - node
+desktop:
+  - google-chrome
+  - firefox
+  - spotify
+  - adium
+  - alfred
+  - boom
+  - dropbox
+  - dockertoolbox
+  - vagrant
+  - hipchat
+  - iterm2
+  - dbeaver-community
+  - cyberduck

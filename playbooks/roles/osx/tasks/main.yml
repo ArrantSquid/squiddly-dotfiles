@@ -1,0 +1,47 @@
+# vim:ft=ansible:
+---
+- name: Update Homebrew
+  shell: brew update; brew upgrade
+
+- name: Tap Homebrew Versions
+  shell: brew tap homebrew/versions
+
+- name: Install Homebrew Cask
+  shell: brew install caskroom/cask/brew-cask
+
+- name: Install Java
+  homebrew_cask: name=java state=present
+
+- name: Install Utility packages from Homebrew
+  homebrew: name={{item}} state=present
+  with_items: utility
+
+- name: Install Language packages from Homebrew
+  homebrew: name={{item}} state=present
+  with_items: language
+
+- name: Upgrade Pip and Setuptools
+  pip: name={{item}} state=latest
+  with_items:
+  - pip
+  - setuptools
+
+- name: Install Virtualenv
+  pip: name=virtualenv state=latest
+
+- name: Install App packages from Homebrew
+  homebrew: name={{item}} state=present
+  with_items: app
+
+- name: Install Desktop Apps
+  homebrew_cask: name={{item}} state=present
+  with_items: desktop
+
+- name: Install Freetds for Azure
+  homebrew: name=freetds state=present install_options=with-unixodbc
+
+- name: Create screenshot directory
+  file: path=~/Pictures/screenshots state=directory
+
+- name: Change Screenshot location
+  shell: defaults write com.apple.screencapture location ~/Pictures/screenshots;killall SystemUIServer
