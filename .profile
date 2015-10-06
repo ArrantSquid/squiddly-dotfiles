@@ -28,6 +28,11 @@ export PATH
 PYTHONPATH=$FBXSDK:$PYTHONPATH
 export PYTHONPATH
 
+#################
+# SETUP ANDROID #
+#################
+export ANDROID_HOME=/usr/local/opt/android-sdk
+
 #############
 # SETUP GIT #
 #############
