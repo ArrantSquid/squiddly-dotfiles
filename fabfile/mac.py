@@ -80,3 +80,7 @@ def dockertoolbox():
 def vagrant():
     """Installs vagrant."""
     brew('vagrant', True)
+
+@task
+def sql_server():
+    brew('freetds --with-unixodbc', False)
