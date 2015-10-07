@@ -6,6 +6,18 @@
 - name: Tap Homebrew Versions
   shell: brew tap homebrew/versions
 
+- name: Make Standard Directories
+  file: path={{item}} state=directory mode=0755
+  with_items:
+    - ~/tmp
+    - ~/go
+    - ~/src
+    - ~/bin
+    - ~/envs
+    - ~/repos
+    - ~/.vim_swap
+    - ~/.vim_undo
+
 - name: Install Homebrew Cask
   shell: brew install caskroom/cask/brew-cask
 
@@ -37,11 +49,29 @@
   homebrew_cask: name={{item}} state=present
   with_items: desktop
 
-- name: Install Freetds for Azure
-  homebrew: name=freetds state=present install_options=with-unixodbc
+- name: Install Vim
+  homebrew: name=vim state=present install_options=with-python,with-cscope,with-lua,with-ruby,with-luajit,with-perl
+
+- name: Install MacVim
+  homebrew: name=macvim state=present install_options=with-python,with-cscope,with-lua,with-ruby,with-luajit,with-perl
+
+- name: Download Source Code Pro
+  get_url: url=https://github.com/adobe-fonts/source-code-pro/archive/2.010R-ro/1.030R-it.tar.gz dest=~/tmp/scp.tar.gz
+
+- name: Unarchive Source Code Pro
+  unarchive: src=~/tmp/scp.tar.gz dest=~/tmp
+
+- name: Install Source Code Pro
+  shell: mv ~/tmp/source-code-pro-2.010R-ro-1.030R-it/OTF/*.otf ~/Library/Fonts/
+
+- name: Install VIM plugins
+  shell: vim +PluginInstall +qall
 
 - name: Create screenshot directory
   file: path=~/Pictures/screenshots state=directory
 
 - name: Change Screenshot location
   shell: defaults write com.apple.screencapture location ~/Pictures/screenshots;killall SystemUIServer
+
+- name: Install Freetds for Azure
+  homebrew: name=freetds state=present install_options=with-unixodbc
