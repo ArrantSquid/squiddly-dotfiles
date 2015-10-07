@@ -274,7 +274,7 @@
 	<key>HighlightTabLabels</key>
 	<true/>
 	<key>HotKeyBookmark</key>
-	<string>4824A473-4639-467A-9F75-E6DE8F608799</string>
+	<string>3965B31D-7BB5-4529-8200-EF5DA4D4CDFD</string>
 	<key>HotKeyTogglesWindow</key>
 	<false/>
 	<key>Hotkey</key>
@@ -310,9 +310,9 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>237 156 864 355 0 0 1280 777 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>269 123 924 485 0 0 1280 777 </string>
+	<string>269 124 924 485 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 83 1280 694 0 0 1280 777 </string>
+	<string>0 81 1274 696 0 0 1280 777 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -869,11 +869,11 @@
 			<key>Name</key>
 			<string>iPython</string>
 			<key>Non Ascii Font</key>
-			<string>SauceCodePowerline-Light 14</string>
+			<string>SourceCodePro-Light 14</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>SauceCodePowerline-Light 14</string>
+			<string>SourceCodePro-Light 14</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1601,11 +1601,11 @@
 			<key>Name</key>
 			<string>Unit Tests</string>
 			<key>Non Ascii Font</key>
-			<string>SauceCodePowerline-Light 14</string>
+			<string>SourceCodePro-Light 14</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>SauceCodePowerline-Light 14</string>
+			<string>SourceCodePro-Light 14</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -2333,11 +2333,11 @@
 			<key>Name</key>
 			<string>Working</string>
 			<key>Non Ascii Font</key>
-			<string>SauceCodePowerline-Light 14</string>
+			<string>SourceCodePro-Light 14</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>SauceCodePowerline-Light 14</string>
+			<string>SourceCodePro-Light 14</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -3077,11 +3077,11 @@
 			<key>Name</key>
 			<string>SSH</string>
 			<key>Non Ascii Font</key>
-			<string>SauceCodePowerline-Light 14</string>
+			<string>SourceCodePro-Light 14</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>SauceCodePowerline-Light 14</string>
+			<string>SourceCodePro-Light 14</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -3809,11 +3809,11 @@
 			<key>Name</key>
 			<string>Runserver</string>
 			<key>Non Ascii Font</key>
-			<string>SauceCodePowerline-Light 14</string>
+			<string>SourceCodePro-Light 14</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>SauceCodePowerline-Light 14</string>
+			<string>SourceCodePro-Light 14</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -3991,7 +3991,7 @@
 	<key>NoSyncTimeOfLastPromo</key>
 	<real>463000063.49664199</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>464463745.23807698</real>
+	<real>465944152.67288399</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -4054,11 +4054,11 @@
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedURL</key>
-	<string>http://iterm2.com/appcasts/testing.xml</string>
+	<string>https://iterm2.com/appcasts/testing.xml</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-09-20T17:42:22Z</date>
+	<date>2015-10-07T20:55:43Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -11225,6 +11225,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.1.1</string>
+	<string>2.1.4</string>
 </dict>
 </plist>

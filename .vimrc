@@ -42,7 +42,6 @@ Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-markdown'
 Plugin 'PProvost/vim-ps1'
 Plugin 'chase/vim-ansible-yaml'
-" Plugin 'avakhov/vim-yaml'
 " UI Plugins
 Plugin 'fatih/molokai'
 Plugin 'bling/vim-airline'
@@ -71,17 +70,14 @@ set fillchars+=stl:\ ,stlnc:\
 colorscheme molokai
 let g:rehash256 = 1
 
-set guifont=Sauce\ Code\ Powerline\ Light:h15
+set guifont=Source\ Code\ Pro\ Light:h15
 if has('gui_running')
     set guioptions+=T                   " Show our toolbar
-    " set guifont=Hack:h14
     if has("gui_macvim")
         set lines=75
         set columns=205
-        " set guifont=Sauce\ Code\ Powerline\ Light:h15
-        set guifont=Inconsolata\ for\ Powerline:h15
     elseif has("win32")
-        set guifont=Sauce\ Code\ Powerline\ PNFT\ Mono:h12
+        set guifont=Source\ Code\ Pro\ Light:h12
         if has("autocmd")
             au GUIEnter * simalt ~x
         endif
