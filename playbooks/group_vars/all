@@ -33,3 +33,5 @@ desktop:
   - dbeaver-community
   - cyberduck
   - iterm2
+  - slack
+  - viscosity
