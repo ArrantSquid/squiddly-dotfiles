@@ -43,9 +43,11 @@ Plugin 'tpope/vim-markdown'
 Plugin 'PProvost/vim-ps1'
 Plugin 'chase/vim-ansible-yaml'
 " UI Plugins
-Plugin 'fatih/molokai'
+Plugin 'tomasr/molokai'
 Plugin 'bling/vim-airline'
-Plugin 'ryanoasis/vim-webdevicons'
+" Plugin 'ryanoasis/vim-devicons' " broken until source code pro gets proper osx fonts
+" My Plugins
+Plugin 'johnpneumann/johnp-snippets'
 
 call vundle#end()           " required
 
@@ -117,12 +119,6 @@ set shellslash 				" Use the / instead of \
 set nowrap				    " No word wrap
 set viminfo='100,/100,:100,@100 	" Settings for vim to remember stuff on startup :help viminfo
 set laststatus=2			" Always show status line
-" Harder to explain but an awesome statusline
-" %r tells if the file is readonly
-" %{expand('%:p')} gives the full path to the file
-" %l/%L current line and total lines
-" %v current column
-" set statusline=%r\ F:%{expand('%:p')}\ L:%l/%L\ C:%v
 set hidden 				    " This allows vim to work with buffers much more liberally. So no warnings when switching modified buffers
 set sessionoptions=buffers,resize,winpos,winsize " What information to save when creating a session.
 set sts=4                   " Set the softtabstop to 4 for everything

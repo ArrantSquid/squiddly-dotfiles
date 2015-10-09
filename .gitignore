@@ -9,6 +9,3 @@ __pycache__/
 .netrwhist
 .vim/sessions
 .vim/bundle/*
-
-# Do not ignore these
-!.vim/bundle/johnp-snippets
