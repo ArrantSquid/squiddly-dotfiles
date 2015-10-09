@@ -6,6 +6,9 @@
 - name: Tap Homebrew Versions
   shell: brew tap homebrew/versions
 
+- name: Tap Homebrew rmtree
+  shell: brew tap beeftornado/rmtree
+
 - name: Make Standard Directories
   file: path={{item}} state=directory mode=0755
   with_items:
