@@ -37,3 +37,8 @@ desktop:
   - viscosity
   - wacom-tablet
   - fitbit-connect
+python:
+  - pip
+  - setuptools
+  - ipython
+  - virtualenv
