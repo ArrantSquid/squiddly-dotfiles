@@ -71,5 +71,8 @@
 - name: Change Screenshot location
   shell: defaults write com.apple.screencapture location ~/Pictures/screenshots;killall SystemUIServer
 
+- name: Create locate database
+  shell: sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+
 - name: Install Freetds for Azure
   homebrew: name=freetds state=present install_options=with-unixodbc
