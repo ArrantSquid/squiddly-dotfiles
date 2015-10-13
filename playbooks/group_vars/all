@@ -37,6 +37,7 @@ desktop:
   - viscosity
   - wacom-tablet
   - fitbit-connect
+  - lastpass
 python:
   - pip
   - setuptools
