@@ -47,6 +47,10 @@
   homebrew_cask: name={{item}} state=present
   with_items: desktop
 
+- name: Install Work Apps
+  homebrew_cask: name={{item}} state=present
+  with_items: work
+
 - name: Install Vim
   homebrew: name=vim state=present install_options=with-python,with-cscope,with-lua,with-ruby,with-luajit,with-perl
 
@@ -66,10 +70,10 @@
   shell: vim +PluginInstall +qall
 
 - name: Create screenshot directory
-  file: path=~/Pictures/screenshots state=directory
+  file: path=~/Dropbox/screenshots state=directory
 
 - name: Change Screenshot location
-  shell: defaults write com.apple.screencapture location ~/Pictures/screenshots;killall SystemUIServer
+  shell: defaults write com.apple.screencapture location ~/Dropbox/screenshots;killall SystemUIServer
 
 - name: Create locate database
   shell: sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist

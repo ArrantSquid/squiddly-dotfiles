@@ -144,10 +144,9 @@ let g:neocomplete#enable_at_startup = 1
 
 " Set ultisnips vars
 set rtp+=~/.vim/bundle/johnp-snippets
-let g:snips_author = 'John P. Neumann'
+let g:snips_author = 'johnpneumann'
 let g:snips_email = 'john.p.neumann@gmail.com'
 let g:snips_github = 'https://github.com/johnpneumann'
-let g:UltiSnipsSnippetsDir = '~/.vim/bundle/johnp-snippets/UltiSnips/'
 
 " Set the docstrings to be normal, doxygen or sphinx based
 let g:ultisnips_python_style = 'sphinx'             " sphinx style docstrings

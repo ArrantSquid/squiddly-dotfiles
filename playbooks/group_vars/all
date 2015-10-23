@@ -29,7 +29,6 @@ desktop:
   - dropbox
   - dockertoolbox
   - vagrant
-  - hipchat
   - iterm2
   - dbeaver-community
   - cyberduck
@@ -38,6 +37,12 @@ desktop:
   - wacom-tablet
   - fitbit-connect
   - lastpass
+  - google-drive
+work:
+  - hipchat
+  - teamviewer
+  - unity
+  - unity-web-player
 python:
   - pip
   - setuptools
