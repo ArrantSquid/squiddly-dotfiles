@@ -11,8 +11,6 @@ alias ll='ls -l'
 alias listenvs='ls -1 $VIRTUAL_ENV_DIR'
 # Source our .bashrc and .bash_profile for easy env reloads
 alias src='source $HOME/.bashrc; source $HOME/.bash_profile'
-# Kill a program with Harry Potter style
-alias ak='avada_kedavra.sh'
 # Get your current ip
 alias curip='ifconfig -a | grep -w inet | cut -d" " -f2 '
 

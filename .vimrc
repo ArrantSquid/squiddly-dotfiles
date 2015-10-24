@@ -69,8 +69,12 @@ set fillchars+=stl:\ ,stlnc:\
 " ==================================================
 " View/Color Settings
 " ==================================================
-colorscheme molokai
-let g:rehash256 = 1
+try
+    colorscheme molokai
+    let g:rehash256 = 1
+catch /^Vim\%((\a\+)\)\=:E185/
+    " deal with it
+endtry
 
 set guifont=Source\ Code\ Pro\ Light:h15
 if has('gui_running')
