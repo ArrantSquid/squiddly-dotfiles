@@ -66,6 +66,9 @@
 - name: Install Source Code Pro
   shell: mv ~/tmp/source-code-pro-2.010R-ro-1.030R-it/OTF/*.otf ~/Library/Fonts/
 
+- name: Clone Vundle
+  git: repo=https://github.com/VundleVim/Vundle.vim.git dest=~/.vim/bundle/Vundle.vim
+
 - name: Install VIM plugins
   shell: vim +PluginInstall +qall
 
@@ -76,7 +79,7 @@
   shell: defaults write com.apple.screencapture location ~/Dropbox/screenshots;killall SystemUIServer
 
 - name: Create locate database
-  shell: sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+  shell: launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist become=yes
 
 - name: Install Freetds for Azure
   homebrew: name=freetds state=present install_options=with-unixodbc
