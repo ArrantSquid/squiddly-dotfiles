@@ -22,7 +22,7 @@
     - ~/.vim_undo
 
 - name: Install Homebrew Cask
-  shell: brew install caskroom/cask/brew-cask
+  homebrew: name=caskroom/cask/brew-cask state=latest
 
 - name: Install Java
   homebrew_cask: name=java state=present
