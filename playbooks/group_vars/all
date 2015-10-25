@@ -4,6 +4,7 @@ app:
   - sqlite
   - android
   - android-ndk-r10c
+  - Caskroom/cask/pocketcast
 utility:
   - coreutils
   - ctags
@@ -38,6 +39,7 @@ desktop:
   - fitbit-connect
   - lastpass
   - google-drive
+  - logitech-control-center
 work:
   - hipchat
   - teamviewer
