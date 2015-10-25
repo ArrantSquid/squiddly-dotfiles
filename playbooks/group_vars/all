@@ -1,50 +1,54 @@
 # vim:ft=ansible:
 app:
-  - postgresql
-  - sqlite
-  - android
-  - android-ndk-r10c
-  - Caskroom/cask/pocketcast
+  - {pkg: 'postgresql', state: 'latest', options: ''}
+  - {pkg: 'sqlite', state: 'latest', options: ''}
+  - {pkg: 'android', state: 'latest', options: ''}
+  - {pkg: 'android-ndk-r10c', state: 'latest', options: ''}
+  - {pkg: 'vim', state: 'latest', options: 'with-python,with-cscope,with-lua,with-ruby,with-luajit,with-perl'}
+  - {pkg: 'macvim', state: 'latest', options: 'with-python,with-cscope,with-lua,with-ruby,with-luajit,with-perl'}
 utility:
-  - coreutils
-  - ctags
-  - cmake
-  - tree
-  - htop
-  - wget
-  - fortune
-  - cowsay
-  - git
-  - brew-rmtree
+  - {pkg: 'caskroom/cask/brew-cask', state: 'latest', options: ''}
+  - {pkg: 'coreutils', state: 'latest', options: ''}
+  - {pkg: 'ctags', state: 'latest', options: ''}
+  - {pkg: 'cmake', state: 'latest', options: ''}
+  - {pkg: 'tree', state: 'latest', options: ''}
+  - {pkg: 'htop', state: 'latest', options: ''}
+  - {pkg: 'wget', state: 'latest', options: ''}
+  - {pkg: 'fortune', state: 'latest', options: ''}
+  - {pkg: 'cowsay', state: 'latest', options: ''}
+  - {pkg: 'git', state: 'latest', options: ''}
+  - {pkg: 'brew-rmtree', state: 'latest', options: ''}
 language:
-  - ruby
-  - go
-  - node
+  - {pkg: 'ruby', state: 'latest', options: ''}
+  - {pkg: 'go', state: 'latest', options: ''}
+  - {pkg: 'node', state: 'latest', options: ''}
 desktop:
-  - google-chrome
-  - firefox
-  - spotify
-  - adium
-  - alfred
-  - boom
-  - dropbox
-  - dockertoolbox
-  - vagrant
-  - iterm2
-  - dbeaver-community
-  - cyberduck
-  - slack
-  - viscosity
-  - wacom-tablet
-  - fitbit-connect
-  - lastpass
-  - google-drive
-  - logitech-control-center
-work:
-  - hipchat
-  - teamviewer
-  - unity
-  - unity-web-player
+  - {pkg: 'java'}
+  - {pkg: 'google-chrome'}
+  - {pkg: 'firefox'}
+  - {pkg: 'spotify'}
+  - {pkg: 'adium'}
+  - {pkg: 'alfred'}
+  - {pkg: 'boom'}
+  - {pkg: 'dropbox'}
+  - {pkg: 'dockertoolbox'}
+  - {pkg: 'vagrant'}
+  - {pkg: 'iterm2'}
+  - {pkg: 'dbeaver-community'}
+  - {pkg: 'cyberduck'}
+  - {pkg: 'slack'}
+  - {pkg: 'viscosity'}
+  - {pkg: 'wacom-tablet'}
+  - {pkg: 'fitbit-connect'}
+  - {pkg: 'lastpass'}
+  - {pkg: 'google-drive'}
+  - {pkg: 'logitech-control-center'}
+  - {pkg: 'pocketcast'}
+work_desktop:
+  - {pkg: 'hipchat'}
+  - {pkg: 'teamviewer'}
+  - {pkg: 'unity'}
+  - {pkg: 'unity-web-player'}
 python:
   - pip
   - setuptools

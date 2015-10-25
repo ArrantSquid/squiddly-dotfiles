@@ -21,18 +21,12 @@
     - ~/.vim_swap
     - ~/.vim_undo
 
-- name: Install Homebrew Cask
-  homebrew: name=caskroom/cask/brew-cask state=latest
-
-- name: Install Java
-  homebrew_cask: name=java state=present
-
 - name: Install Utility packages from Homebrew
-  homebrew: name={{item}} state=present
+  homebrew: name={{item.pkg}} state={{item.state}} install_options={{item.options}}
   with_items: utility
 
 - name: Install Language packages from Homebrew
-  homebrew: name={{item}} state=present
+  homebrew: name={{item.pkg}} state={{item.state}} install_options={{item.options}}
   with_items: language
 
 - name: Install Python Packages
@@ -40,22 +34,16 @@
   with_items: python
 
 - name: Install App packages from Homebrew
-  homebrew: name={{item}} state=present
+  homebrew: name={{item.pkg}} state={{item.state}} install_options={{item.options}}
   with_items: app
 
 - name: Install Desktop Apps
-  homebrew_cask: name={{item}} state=present
+  homebrew_cask: name={{item.pkg}} state=present
   with_items: desktop
 
-- name: Install Work Apps
-  homebrew_cask: name={{item}} state=present
-  with_items: work
-
-- name: Install Vim
-  homebrew: name=vim state=present install_options=with-python,with-cscope,with-lua,with-ruby,with-luajit,with-perl
-
-- name: Install MacVim
-  homebrew: name=macvim state=present install_options=with-python,with-cscope,with-lua,with-ruby,with-luajit,with-perl
+- name: Install Work Desktop Apps
+  homebrew_cask: name={{item.pkg}} state=present
+  with_items: work_desktop
 
 - name: Download Source Code Pro
   get_url: url=https://github.com/adobe-fonts/source-code-pro/archive/2.010R-ro/1.030R-it.tar.gz dest=~/tmp/scp.tar.gz
