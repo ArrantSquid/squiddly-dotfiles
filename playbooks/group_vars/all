@@ -44,6 +44,8 @@ desktop:
   - {pkg: 'google-drive'}
   - {pkg: 'logitech-control-center'}
   - {pkg: 'pocketcast'}
+  - {pkg: 'skype'}
+  - {pkg: 'virtualbox'}
 work_desktop:
   - {pkg: 'hipchat'}
   - {pkg: 'teamviewer'}

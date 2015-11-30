@@ -71,3 +71,10 @@
 
 - name: Install Freetds for Azure
   homebrew: name=freetds state=present install_options=with-unixodbc
+
+- name: Create testing virtualenv
+  pip: name={{item}} state=latest virtualenv=~/envs/testing
+  with_items:
+    - flake8
+    - radon
+    - coverage

@@ -36,6 +36,8 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 #############
 # SETUP GIT #
 #############
-git config --global user.email $EMAIL > /dev/null
-git config --global core.email $EMAIL > /dev/null
-git config --global github.token $GITHUB_API_TOKEN > /dev/null
+if [ ! -e "$HOME/.gitconfig" ]; then
+    git config --global user.email $EMAIL > /dev/null
+    git config --global core.email $EMAIL > /dev/null
+    git config --global github.token $GITHUB_API_TOKEN > /dev/null
+fi
