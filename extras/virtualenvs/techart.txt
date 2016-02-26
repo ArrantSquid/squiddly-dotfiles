@@ -1,0 +1,15 @@
+# Techart requirements
+-r common.txt
+
+# Awesome libraries
+click
+requests
+
+# Maya helpers
+p4python
+PySide
+
+# Formats
+Markdown
+PyYAML
+Jinja2

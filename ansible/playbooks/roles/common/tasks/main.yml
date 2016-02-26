@@ -1,0 +1,19 @@
+# vim:ft=ansible:
+---
+
+- name: make standard directories
+  file: path="{{item}}" state=directory mode=0755
+  with_items: "{{standard_directories}}"
+
+- name: install python packages
+  pip: name="{{item}}" state=latest
+  with_items: "{{python_packages}}"
+
+- name: Clone Vundle
+  git: repo="{{vundle_location}}" dest="{{vundle_dest}}"
+
+- name: Install VIM plugins
+  shell: vim +PluginInstall +qall
+
+- name: Create screenshot directory
+  file: path="{{screenshot_directory}}" state=directory mode=0755

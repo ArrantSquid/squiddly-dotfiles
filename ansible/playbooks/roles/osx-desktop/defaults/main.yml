@@ -1,0 +1,7 @@
+# vim:ft=ansible:
+---
+
+desktop: []
+work_desktop: []
+taps:
+  - homebrew/versions

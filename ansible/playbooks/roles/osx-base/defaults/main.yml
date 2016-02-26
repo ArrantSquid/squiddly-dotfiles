@@ -1,0 +1,10 @@
+# vim:ft=ansible:
+---
+
+apps: []
+fonts: []
+utility: []
+work_utility: []
+language: []
+taps:
+  - homebrew/versions

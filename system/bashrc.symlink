@@ -30,21 +30,22 @@ else
     BOLD=""
     RESET="\033[m"
 fi
+
 # Custom bash prompt via kirsle.net/wizards/ps1.html
 export PS1="\[$BLUE\]\W\[$RED\] >\[$YELLOW\]>\[$GREEN\]>\[$MAGENTA\] \u \[$WHITE\]\[$RESET\]$ "
-export HISTCONTROL=ignoredups
-export HISTCONTROL=erasedups
-export HISTIGNORE='pwd:ll:ls:cd ..:cd ../..:listenvs:src:ak:curip:startdocker'
-export HISTTIMEFORMAT='%F %T '
+# editor
+export EDITOR='vim'
 
 # ignores duplicate and empty history
 export HISTCONTROL=ignoreboth
+# ignore these very specifc commands
+export HISTIGNORE='pwd:ll:ls:cd ..:cd ../..:listenvs:src:workon:startdocker'
+# history time format
+export HISTTIMEFORMAT='%F %T '
 # merge all history from multiple tabs together
 shopt -s histappend
 # After each command, save and reload history - this preserves the history
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-
-export EDITOR='vim'
 
 # Add bash aliases.
 if [ -f ~/.bash_aliases ]; then

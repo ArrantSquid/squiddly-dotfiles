@@ -1,0 +1,8 @@
+# vim:ft=ansible:
+---
+
+standard_directories: []
+python_packages: []
+vundle_location: "https://github.com/VundleVim/Vundle.vim.git"
+vundle_dest: "{{lookup('env','HOME')}}/.vim/bundle/Vundle.vim"
+screenshot_directory: "{{lookup('env','HOME')}}/screenshots"

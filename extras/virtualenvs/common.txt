@@ -1,0 +1,16 @@
+# Common requirements
+# Testing
+mock
+flake8
+pylint
+pytest
+coverage
+
+# Docs
+Sphinx
+
+# better interpreter
+ipython[notebook]
+
+# improved REPL
+ipdb

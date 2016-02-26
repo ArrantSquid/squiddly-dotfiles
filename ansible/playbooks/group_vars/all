@@ -1,0 +1,142 @@
+# vim:ft=ansible:
+
+screenshot_directory: "{{lookup('env','HOME')}}/Dropbox/screenshots"
+
+python_packages:
+  - pip
+  - setuptools
+  - virtualenv
+
+standard_directories:
+  - ~/tmp
+  - ~/go
+  - ~/src
+  - ~/bin
+  - ~/envs
+  - ~/repos
+  - ~/.vim_swap
+  - ~/.vim_undo
+
+# osx-base
+taps:
+  - homebrew/versions
+  - homebrew/binary
+  - beeftornado/rmtree
+  - caskroom/fonts
+  - caskroom/versions
+
+apps:
+  - pkg: postgresql
+    state: latest
+  - pkg: sqlite
+    state: latest
+  - pkg: android
+    state: latest
+  - pkg: android-ndk-r10c
+    state: latest
+  - pkg: vim
+    state: latest
+    options: with-python,with-cscope,with-lua,with-ruby,with-luajit,with-perl
+  - pkg: macvim
+    state: latest
+    options: with-python,with-cscope,with-lua,with-ruby,with-luajit,with-perl
+
+utility:
+  - pkg: coreutils
+    state: latest
+  - pkg: ctags
+    state: latest
+  - pkg: cmake
+    state: latest
+  - pkg: tree
+    state: latest
+  - pkg: htop
+    state: latest
+  - pkg: wget
+    state: latest
+  - pkg: fortune
+    state: latest
+  - pkg: cowsay
+    state: latest
+  - pkg: git
+    state: latest
+  - pkg: brew-rmtree
+    state: latest
+  - pkg: tor
+    state: latest
+  - pkg: sloccount
+    state: latest
+  - pkg: terminal-notifier
+    state: latest
+
+language:
+  - pkg: ruby
+    state: latest
+  - pkg: go
+    state: latest
+  - pkg: node
+    state: latest
+  - pkg: gradle
+    state: latest
+  - pkg: qt
+    state: latest
+
+work_utility:
+  - pkg: freetds
+    state: latest
+    options: --with-unixodbc
+  - pkg: perforce
+    state: latest
+  - pkg: mono
+    state: latest
+
+fonts:
+  - font-source-code-pro
+
+# osx-desktop
+
+desktop:
+  - java
+  - google-chrome
+  - firefox
+  - spotify
+  - adium
+  - alfred
+  - boom
+  - dropbox
+  - dockertoolbox
+  - vagrant
+  - iterm2
+  - dbeaver-community
+  - cyberduck
+  - slack
+  - viscosity
+  - wacom-tablet
+  - fitbit-connect
+  - lastpass
+  - google-drive
+  - logitech-control-center
+  - pocketcast
+  - skype
+  - virtualbox
+  - evernote
+  - wkhtmltopdf
+  - torbrowser
+  - eclipse-ide
+  - xquartz
+  - dia
+  - calibre
+
+work_desktop:
+  - hipchat
+  - teamviewer
+  - unity
+  - unity-web-player
+  - p4v
+  - xamarin-studio
+  - xamarin-android
+  - xamarin-ios
+  - xamarin-mdk
+  - unity-web-player
+  - sourcetree
+

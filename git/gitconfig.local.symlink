@@ -1,0 +1,5 @@
+[user]
+    name = John P. Neumann
+    email = john.p.neumann@gmail.com
+[credential]
+    helper = osxkeychain
