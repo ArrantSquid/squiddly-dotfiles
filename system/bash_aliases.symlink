@@ -3,6 +3,7 @@
 # SYSTEM ALIASES #
 ##################
 alias ll='ls -l'
+alias hidden='ls -d .*'
 
 ##################
 # HELPER ALIASES #
@@ -13,6 +14,11 @@ alias listenvs='ls -1 $VIRTUAL_ENV_DIR'
 alias src='source $HOME/.bashrc; source $HOME/.bash_profile'
 # Get your current ip
 alias curip='ifconfig -a | grep -w inet | cut -d" " -f2 '
+# Tor start
+alias torstart='launchctl load ~/Library/LaunchAgents/homebrew.mxcl.tor.plist'
+# tcpdump port 80
+alias tcpdl80="sudo tcpdump -s 0 -A -i lo0 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'"
+alias tcpd80="sudo tcpdump -s 0 -A -i en0 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'"
 
 ##################
 # RANDOM ALIASES #
@@ -21,6 +27,10 @@ alias curip='ifconfig -a | grep -w inet | cut -d" " -f2 '
 alias startdocker='boot2docker init; boot2docker start; $(boot2docker shellinit)'
 # Fake SMTP server
 alias tsmtp='python -m smtpd -n -c DebuggingServer localhost:1025'
+# Stahp Houdini License server
+alias stahphou='sudo launchctl unload /Library/LaunchDaemons/com.sidefx.sesinetd.plist'
+# Start Houdini License server
+alias starthou='sudo launchctl load /Library/LaunchDaemons/com.sidefx.sesinetd.plist'
 
 ####################
 # FUNCTION ALIASES #
@@ -39,7 +49,11 @@ createenv() {
         return 1
     fi
     deacenv;
-    virtualenv --no-site-packages $VIRTUAL_ENV_DIR/$1;
+    venv=virtualenv
+    if [ "$2" == "py3" ]; then
+        venv=virtualenv-3.4
+    fi
+    $venv --no-site-packages $VIRTUAL_ENV_DIR/$1;
     workon $1;
 }
 

@@ -5,7 +5,7 @@
 # Virtual Env Dir
 export VIRTUAL_ENV_DIR=$HOME/envs
 # Maya FBXSDK
-export FBXSDK='/Applications/Autodesk/FBX Python SDK/2016.0/lib/Python27'
+export FBXSDK="/Applications/Autodesk/FBX Python SDK/2016.1.2/lib/Python27"
 # GO path
 export GOPATH=$HOME/go
 
@@ -25,7 +25,7 @@ export PATH
 ####################
 # SETUP PYTHONPATH #
 ####################
-PYTHONPATH=$FBXSDK:$PYTHONPATH
+PYTHONPATH=$FBXSDK:`brew --prefix`/lib/python2.7/site-packages:$PYTHONPATH
 export PYTHONPATH
 
 #################

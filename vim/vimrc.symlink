@@ -1,4 +1,4 @@
-" Neumann's .vimrc file
+" Customizable .vimrc with bells and whistles
 
 " ==================================================
 " Starting Up Settings
@@ -26,7 +26,9 @@ Plugin 'sjl/gundo.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ervandew/supertab'
 Plugin 'majutsushi/tagbar'
-Plugin 'SirVer/ultisnips'
+if v:version >= 704
+    Plugin 'SirVer/ultisnips'
+endif
 Plugin 'tpope/vim-fugitive'
 Plugin 'xolox/vim-misc'
 Plugin 'tpope/vim-repeat'
@@ -35,17 +37,22 @@ Plugin 'tpope/vim-surround'
 Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
-Plugin 'Shougo/neocomplete.vim'
+if v:version >= 703
+    if has("lua")
+        Plugin 'Shougo/neocomplete.vim'
+    endif
+endif
 " Language Plugins
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-markdown'
 Plugin 'PProvost/vim-ps1'
 Plugin 'chase/vim-ansible-yaml'
+Plugin 'editorconfig/editorconfig-vim'
 " UI Plugins
 Plugin 'tomasr/molokai'
 Plugin 'bling/vim-airline'
-" Plugin 'ryanoasis/vim-devicons' " broken until source code pro gets proper osx fonts
+Plugin 'vim-airline/vim-airline-themes'
 " My Plugins
 Plugin 'johnpneumann/johnp-snippets'
 
@@ -57,12 +64,10 @@ filetype plugin indent on
 
 " Default to utf8 encoding
 set encoding=utf8
-set termencoding=utf-8
 " Default to unix line-endings, but support dos
 set fileformats=unix,dos
 " Set terminal color to 256
 set t_Co=256
-set term=xterm-256color
 " Statusline replacements
 set fillchars+=stl:\ ,stlnc:\
 
@@ -143,35 +148,35 @@ set directory=~/.vim_swap//
 " ==================================================
 " Set Plugin Options
 " ==================================================
-" Set NeoComplete to run
-let g:neocomplete#enable_at_startup = 1
-
-" Set ultisnips vars
-set rtp+=~/.vim/bundle/johnp-snippets
-let g:snips_author = 'johnpneumann'
-let g:snips_email = 'john.p.neumann@gmail.com'
-let g:snips_github = 'https://github.com/johnpneumann'
-
-" Set the docstrings to be normal, doxygen or sphinx based
-let g:ultisnips_python_style = 'sphinx'             " sphinx style docstrings
-
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-
 " Supertab completion
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+if exists("g:loaded_neocomplete")
+    " Set NeoComplete to run
+    let g:neocomplete#enable_at_startup = 1
+endif
+
+if exists("g:loaded_ultisnips")
+    " Set ultisnips vars
+    set rtp+=~/.vim/bundle/johnp-snippets
+    let g:snips_author = 'johnpneumann'
+    let g:snips_email = 'john.p.neumann@gmail.com'
+    let g:snips_github = 'https://github.com/johnpneumann'
+
+    " Set the docstrings to be normal, doxygen or sphinx based
+    let g:ultisnips_python_style = 'sphinx'             " sphinx style docstrings
+
+    " better key bindings for UltiSnipsExpandTrigger
+    let g:UltiSnipsExpandTrigger = "<tab>"
+    let g:UltiSnipsJumpForwardTrigger = "<tab>"
+    let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+endif
 
 " Nerdtree ignore
 let NERDTreeIgnore = ['\.pyc$']
 
 " Add spaces before we comment
-let NERDSpaceDelims = 1
+" let NERDSpaceDelims = 1
 " Comment the whole line
 let NERDCommentWholeLinesInVMode=1
 

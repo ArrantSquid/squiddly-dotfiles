@@ -1,0 +1,16 @@
+# Tools virtualenv
+-r common.txt
+
+# Awesome libraries
+click
+requests
+pycrypto
+uncompyle6
+paramiko
+coveralls
+boto3
+
+# Formats
+Markdown
+PyYAML
+Jinja2
