@@ -1,3 +1,3 @@
 # Testing
--r common.txt
+-r common.in
 tox

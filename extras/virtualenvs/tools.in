@@ -1,5 +1,5 @@
 # Tools virtualenv
--r common.txt
+-r common.in
 
 # Awesome libraries
 click

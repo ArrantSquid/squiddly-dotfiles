@@ -130,14 +130,10 @@ link_file () {
 
 
 xcode_install () {
-    # Agree to the Xcode license
-    echo "Agree to the xcode license."
-    sudo xcodebuild -license accept
-
     # Install xcode command line tools
-    echo "Installing Command Line Tools"
     xcode-select -p >/dev/null
     if [ $? -ne 0 ]; then
+        info 'Installing Command Line Tools'
         xcode-select --install
     fi
 }
@@ -145,7 +141,7 @@ xcode_install () {
 
 homebrew_install () {
     # Install homebrew
-    echo "Install Homebrew"
+    info 'Install Homebrew'
     command -v brew >/dev/null 2>&1 || { echo >&2
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" </dev/null
     }
@@ -153,10 +149,10 @@ homebrew_install () {
 
 install_python () {
     # Install python
-    echo "Install python"
+    info 'Install python'
     brew install python
     # Upgrade python packages
-    echo "Upgrading and installing python packages"
+    info 'Upgrading and installing python packages'
     pip install --upgrade pip setuptools
     pip install --upgrade virtualenv
 }
@@ -173,18 +169,32 @@ install_dotfiles () {
     done
 }
 
+ansible_config () {
+    INSTALL_ANSIBLE=0
+    user ' - Do you wish to install packages via ansible? [yes/no]'
+    read ansible_case
+    if printf "%s\n" "$ansible_case" | grep -Eq "$(locale yesexpr)"
+    then
+        INSTALL_ANSIBLE=1
+    fi
+
+    if [ "$INSTALL_ANSIBLE" = "1" ]
+    then
+        REMOVE_ANSIBLE=0
+        user ' - Do you wish to remove ansible after installation? [yes/no]'
+        read remove_ansible
+        if printf "%s\n" "$remove_ansible" | grep -Eq "$(locale yesexpr)"
+        then
+            REMOVE_ANSIBLE=1
+        fi
+    fi
+}
 
 ansible_install () {
-    # Create a virtualenv for us
-    echo "Creating our virtualenv in $ANSIBLE_INSTALL_DIR"
-    virtualenv --no-site-packages $ANSIBLE_INSTALL_DIR
-    . $ANSIBLE_INSTALL_DIR/bin/activate
-    # Install Ansible pre-reqs
-    echo "Installing ansibile requirements"
-    pip install paramiko PyYAML Jinja2 httplib2 six
-    echo "Installing ansibile requirements"
-    # install ansible
-    pip install ansible
+    pip freeze > ansible-requirements/your-pip.txt
+    pip install pip-tools
+    pip-compile ansible-requirements/requirements.in
+    pip install -r ansible-requirements/requirements.txt
 }
 
 run_playbook () {
@@ -192,24 +202,32 @@ run_playbook () {
     ansible-playbook ansible/playbooks/site.yml -i localhost
 }
 
-ansible_cleanup() {
-    # get rid of our ansible dir
-    rm -rf $ANSIBLE_INSTALL_DIR
+ansible_post_install () {
+    if [ "$REMOVE_ANSIBLE" = "1" ]
+    then
+        pip uninstall -y -r ansible-requirements/requirements.txt
+        info ' I have done my best to clean up after myself,'
+        info ' however, to see what was [un]installed check'
+        info ' ansible-requirements/requirements.txt.'
+    fi
 }
-
 
 setup_gitconfig
 install_dotfiles
 if [ "$(uname -s)" == "Darwin" ]
 then
-    ANSIBLE_INSTALL_DIR=`mktemp -d 2>/dev/null || mktemp -d -t 'ansible'`
-    xcode_install
-    homebrew_install
-    install_python
-    ansible_install
-    run_playbook
-    ansible_cleanup
+    ansible_config
+    if [ "$INSTALL_ANSIBLE" = "1" ]
+    then
+        xcode_install
+        homebrew_install
+        install_python
+        ansible_install
+        run_playbook
+        ansible_post_install
+    fi
 fi
 
+info ' Your previous pip has been stored in ansible-requirements/your-pip.txt'
 echo ''
-echo '  All installed!'
+success '  All installed!'

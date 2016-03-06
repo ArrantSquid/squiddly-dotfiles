@@ -156,27 +156,25 @@ if exists("g:loaded_neocomplete")
     let g:neocomplete#enable_at_startup = 1
 endif
 
-if exists("g:loaded_ultisnips")
-    " Set ultisnips vars
-    set rtp+=~/.vim/bundle/johnp-snippets
-    let g:snips_author = 'johnpneumann'
-    let g:snips_email = 'john.p.neumann@gmail.com'
-    let g:snips_github = 'https://github.com/johnpneumann'
+" Set ultisnips vars
+set rtp+=~/.vim/bundle/johnp-snippets
+let g:snips_author = 'johnpneumann'
+let g:snips_email = $EMAIL
+let g:snips_github = 'https://github.com/johnpneumann'
 
-    " Set the docstrings to be normal, doxygen or sphinx based
-    let g:ultisnips_python_style = 'sphinx'             " sphinx style docstrings
+" Set the docstrings to be normal, doxygen or sphinx based
+let g:ultisnips_python_style = 'sphinx'             " sphinx style docstrings
 
-    " better key bindings for UltiSnipsExpandTrigger
-    let g:UltiSnipsExpandTrigger = "<tab>"
-    let g:UltiSnipsJumpForwardTrigger = "<tab>"
-    let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-endif
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Nerdtree ignore
 let NERDTreeIgnore = ['\.pyc$']
 
 " Add spaces before we comment
-" let NERDSpaceDelims = 1
+let NERDSpaceDelims = 1
 " Comment the whole line
 let NERDCommentWholeLinesInVMode=1
 
