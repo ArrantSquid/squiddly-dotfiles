@@ -112,9 +112,7 @@ desktop:
   - slack
   - viscosity
   - wacom-tablet
-  - fitbit-connect
   - lastpass
-  - google-drive
   - logitech-control-center
   - pocketcast
   - skype
@@ -122,10 +120,8 @@ desktop:
   - evernote
   - wkhtmltopdf
   - torbrowser
-  - eclipse-ide
-  - xquartz
-  - dia
   - calibre
+  - deluge
 
 work_desktop:
   - hipchat
@@ -137,6 +133,5 @@ work_desktop:
   - xamarin-android
   - xamarin-ios
   - xamarin-mdk
-  - unity-web-player
   - sourcetree
-
+  - eclipse-ide

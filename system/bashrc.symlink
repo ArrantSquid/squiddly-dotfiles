@@ -39,13 +39,11 @@ export EDITOR='vim'
 # ignores duplicate and empty history
 export HISTCONTROL=ignoreboth
 # ignore these very specifc commands
-export HISTIGNORE='pwd:ll:ls:cd ..:cd ../..:listenvs:src:workon:startdocker'
+export HISTIGNORE='pwd:ll:ls:cd ..:cd ../..:listenvs:src:workon:startdocker:rm'
 # history time format
 export HISTTIMEFORMAT='%F %T '
-# merge all history from multiple tabs together
+# append to the history instead of overwriting
 shopt -s histappend
-# After each command, save and reload history - this preserves the history
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # Add bash aliases.
 if [ -f ~/.bash_aliases ]; then

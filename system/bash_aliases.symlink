@@ -9,7 +9,7 @@ alias hidden='ls -d .*'
 # HELPER ALIASES #
 ##################
 # List out envs or git repos
-alias listenvs='ls -1 $VIRTUAL_ENV_DIR'
+#alias listenvs='ls -1 $VIRTUAL_ENV_DIR'
 # Source our .bashrc and .bash_profile for easy env reloads
 alias src='source $HOME/.bashrc; source $HOME/.bash_profile'
 # Get your current ip
@@ -35,34 +35,72 @@ alias starthou='sudo launchctl load /Library/LaunchDaemons/com.sidefx.sesinetd.p
 ####################
 # FUNCTION ALIASES #
 ####################
-# Deactivate a virtualenv if we have one already sourced
-deacenv() {
-    if command -v deactivate > /dev/null 2>&1; then
-        deactivate;
+deacenv()
+{
+    if command -v pyenv deactivate > /dev/null 2>&1
+    then
+        pyenv deactivate;
     fi
 }
 
-# Create a new virtual env
-createenv() {
-    if [ "$1" == "" ]; then
-        echo "You must provide a name for the environment"
-        return 1
-    fi
+createenv()
+{
     deacenv;
-    venv=virtualenv
-    if [ "$2" == "py3" ]; then
-        venv=virtualenv-3.4
+    pyenv virtualenv $1 $2;
+    if [ -z "$2" ]
+    then
+        workon $1;
+    else
+        workon $2;
     fi
-    $venv --no-site-packages $VIRTUAL_ENV_DIR/$1;
-    workon $1;
 }
 
-# Work on a virtualenv
+deleteenv()
+{
+    pyenv uninstall $1;
+}
+
 workon()
 {
     deacenv;
-	. $VIRTUAL_ENV_DIR/$1/bin/activate;
+    pyenv activate $1;
 }
+
+listenvs()
+{
+    pyenv virtualenvs;
+}
+
+## Deactivate a virtualenv if we have one already sourced
+#deacenv() {
+#    if command -v deactivate > /dev/null 2>&1; then
+#        deactivate;
+#    fi
+#}
+
+## Create a new virtual env
+#createenv() {
+#    if [ "$1" == "" ]; then
+#        echo "You must provide a name for the environment"
+#        return 1
+#    fi
+#    deacenv;
+#    venv=virtualenv
+#    if [ "$2" == "py3" ]; then
+#        venv=virtualenv-3.4
+#    fi
+#    $venv --no-site-packages $VIRTUAL_ENV_DIR/$1;
+#    workon $1;
+#}
+
+## Work on a virtualenv
+#workon()
+#{
+#    deacenv;
+#    venv_dir=$VIRTUAL_ENV_DIR/$1
+#    . $VIRTUAL_ENV_DIR/$1/bin/activate;
+#    #export PYTHONPATH=$(find $venv_dir/lib -name 'site-packages' -type d -print | head -n 1)
+#}
 
 # Generate a patch file
 genpatch()
@@ -80,4 +118,16 @@ cpdate()
 supafind()
 {
     grep -rin --include \*.$1 $2 $3
+}
+
+# Find multiple
+caskinstalls()
+{
+
+    for i in $(ls /opt/homebrew-cask/Caskroom)
+    do
+        if [ $(ls /opt/homebrew-cask/Caskroom/${i} | wc -l) -gt 1 ]
+            then echo "found more than 1 install for $i"
+        fi
+    done
 }

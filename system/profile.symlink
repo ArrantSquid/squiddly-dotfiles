@@ -4,8 +4,6 @@
 ##################
 # Virtual Env Dir
 export VIRTUAL_ENV_DIR=$HOME/envs
-# Maya FBXSDK
-export FBXSDK="/Applications/Autodesk/FBX Python SDK/2016.1.2/lib/Python27"
 # GO path
 export GOPATH=$HOME/go
 
@@ -13,22 +11,23 @@ export GOPATH=$HOME/go
 # SETUP PATH #
 ##############
 # Local bin and src
-PATH=$PATH:$HOME/bin:$HOME/src
-# Add in scripts folders
-PATH=$PATH:$HOME/scripts:$HOME/public_scripts
-# Add in ruby
-PATH=$(brew --prefix ruby)/bin:$PATH
-# Add gopath to the path
-PATH=$PATH:$GOPATH/bin
+PATH=$PATH:$HOME/bin:$HOME/src:$HOME/scripts:$GOPATH/bin
 export PATH
 
 ####################
 # SETUP PYTHONPATH #
 ####################
-PYTHONPATH=$FBXSDK:`brew --prefix`/lib/python2.7/site-packages:$PYTHONPATH
-export PYTHONPATH
+# Maya FBXSDK
+export FBXSDK="/Applications/Autodesk/FBX Python SDK/2016.1.2/lib/Python27"
+export PY2_PYTHONPATH=$FBXSDK:$(brew --prefix)/lib/python2.7/site-packages
 
 #################
 # SETUP ANDROID #
 #################
 export ANDROID_HOME=/usr/local/opt/android-sdk
+
+###############
+# SETUP PYENV #
+###############
+#if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+#if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi

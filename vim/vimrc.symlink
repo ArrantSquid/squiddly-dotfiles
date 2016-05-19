@@ -133,8 +133,8 @@ set sessionoptions=buffers,resize,winpos,winsize " What information to save when
 set sts=4                   " Set the softtabstop to 4 for everything
 set ts=4 				    " Set the tabstop to 4 for everything
 set sw=4 				    " Set the shiftwidth to 4 for everything
-let g:session_autosave = 'no'       " Don't <expletive> ask me to save a <expletive> session every <expletive> time
-let g:session_autoload = 'no'       " Don't <expletive> ask me to open a <expletive> file every <expletive> time
+let g:session_autosave='no'       " Don't <expletive> ask me to save a <expletive> session every <expletive> time
+let g:session_autoload='no'       " Don't <expletive> ask me to open a <expletive> file every <expletive> time
 set nofoldenable            " Set the folds to disabled by default
 set keymodel=
 
@@ -149,37 +149,39 @@ set directory=~/.vim_swap//
 " Set Plugin Options
 " ==================================================
 " Supertab completion
-let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:SuperTabDefaultCompletionType='<C-n>'
 
 if exists("g:loaded_neocomplete")
     " Set NeoComplete to run
-    let g:neocomplete#enable_at_startup = 1
+    let g:neocomplete#enable_at_startup=1
 endif
 
 " Set ultisnips vars
 set rtp+=~/.vim/bundle/johnp-snippets
-let g:snips_author = 'johnpneumann'
-let g:snips_email = $EMAIL
-let g:snips_github = 'https://github.com/johnpneumann'
+let g:snips_author='johnpneumann'
+let g:snips_email=$EMAIL
+let g:snips_github='https://github.com/johnpneumann'
 
 " Set the docstrings to be normal, doxygen or sphinx based
-let g:ultisnips_python_style = 'sphinx'             " sphinx style docstrings
+let g:ultisnips_python_style='sphinx'             " sphinx style docstrings
 
 " better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Nerdtree ignore
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore=['\.pyc$']
 
-" Add spaces before we comment
-let NERDSpaceDelims = 1
+"" Add spaces before we comment
+" let NERDSpaceDelims=1
+"" Remove extra spaces when uncommenting
+"let NERDRemoveExtraSpaces=1
 " Comment the whole line
 let NERDCommentWholeLinesInVMode=1
 
 " Set the tags we want to look for when populating our todo
-let g:tlTokenList = ['FIXME', 'TODO', 'XXX', 'fixme', 'todo', 'xxx']
+let g:tlTokenList=['FIXME', 'TODO', 'XXX', 'fixme', 'todo', 'xxx']
 
 "Additional python syntax highlighting
 let python_highlight_all=1
@@ -191,11 +193,11 @@ nnoremap <F5> :GundoToggle<CR>
 nnoremap T :TaskList<CR>
 
 " vim-airline options
-let g:Powerline_symbols = 'fancy'
-let g:airline_powerline_fonts = 1
+let g:Powerline_symbols='fancy'
+let g:airline_powerline_fonts=1
 
 " ansible options
-let g:ansible_options = {'ignore_blank_lines': 0}
+let g:ansible_options={'ignore_blank_lines': 0}
 
 
 " ==================================================
