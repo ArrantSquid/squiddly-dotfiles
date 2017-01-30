@@ -1,8 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 # Creates and installs vim on Ubuntu.
 # Tested on Ubuntu 14.04
 # author: johnpneumann
 #
+set -e
+
+# update apt
+sudo apt-get update
 
 # Install the stuff we need before removing everything
 sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev \
@@ -31,7 +35,6 @@ make distclean
             --with-luajit \
             --with-lua-prefix=/usr \
             --prefix=/usr \
-            --enable-gui=gtk2 \
             --enable-cscope \
             --enable-largefile \
             --disable-netbeans \
