@@ -1,0 +1,33 @@
+# vim:ft=ansible:
+---
+# OSX Setup
+- name: Check that XCode is installed
+  shell: xcode-select -p >/dev/null
+  register: xcode_installed
+  ignore_errors: yes
+  tags:
+    - osx
+    - common
+
+- name: Install XCode
+  shell: xcode-select --install
+  when: xcode_installed == 1
+  tags:
+    - osx
+    - common
+
+- name: Check that Homebrew is installed
+  shell: command -v brew >/dev/null
+  register: homebrew_installed
+  ignore_errors: yes
+  tags:
+    - osx
+    - common
+
+- name: Install Homebrew
+  shell: ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" </dev/null
+  when: homebrew_installed == 1
+  tags:
+    - osx
+    - common
+
